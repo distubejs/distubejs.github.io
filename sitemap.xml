@@ -2,326 +2,326 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>https://distube.js.org/index.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/modules.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/hierarchy.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/enums/Events.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/enums/PluginType.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/enums/RepeatMode.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/classes/BaseManager.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/classes/DisTube.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/classes/DisTubeBase.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/classes/DisTubeError.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/classes/DisTubeHandler.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/classes/DisTubeStream.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/classes/DisTubeVoice.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/classes/DisTubeVoiceManager.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/classes/ExtractorPlugin.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/classes/FilterManager.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/classes/GuildIdManager.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/classes/InfoExtractorPlugin.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/classes/Options.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/classes/PlayableExtractorPlugin.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/classes/Playlist.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/classes/Plugin.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/classes/Queue.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/classes/QueueManager.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/classes/Song.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/classes/TaskQueue.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/interfaces/CustomPlaylistOptions.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/interfaces/Filter.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/interfaces/JumpOptions.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/interfaces/PlaylistInfo.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/interfaces/PlayOptions.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/interfaces/ResolveOptions.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/interfaces/ResolvePlaylistOptions.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/interfaces/SongInfo.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/interfaces/StreamOptions.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/types/Awaitable.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/types/DisTubeEvents.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/types/DisTubeOptions.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/types/DisTubePlugin.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/types/DisTubeVoiceEvents.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/types/Falsy.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/types/FFmpegArg.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/types/FFmpegArgs.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/types/FFmpegOptions.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/types/FilterResolvable.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/types/Filters.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/types/GuildIdResolvable.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/types/KeyOf.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/types/PlayHandlerOptions.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/types/RelatedSong.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/types/TypedDisTubeEvents.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/variables/AUDIO_CHANNELS.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/variables/AUDIO_SAMPLE_RATE.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/variables/DEFAULT_VOLUME.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/variables/defaultFilters.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/variables/defaultOptions.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/variables/HTTP_REDIRECT_CODES.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/variables/JOIN_TIMEOUT_MS.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/variables/MAX_REDIRECT_DEPTH.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/variables/RECONNECT_MAX_ATTEMPTS.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/variables/RECONNECT_TIMEOUT_MS.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/variables/version.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/functions/checkEncryptionLibraries.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/functions/checkFFmpeg.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/functions/checkIntents.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/functions/checkInvalidKey.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/functions/formatDuration.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/functions/isClientInstance.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/functions/isGuildInstance.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/functions/isMemberInstance.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/functions/isMessageInstance.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/functions/isNsfwChannel.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/functions/isObject.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/functions/isSnowflake.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/functions/isSupportedVoiceChannel.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/functions/isTextChannelInstance.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/functions/isTruthy.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/functions/isURL.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/functions/isVoiceChannelEmpty.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/functions/objectKeys.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 	<url>
 		<loc>https://distube.js.org/functions/resolveGuildId.html</loc>
-		<lastmod>2025-12-22T16:36:16.464Z</lastmod>
+		<lastmod>2025-12-22T18:21:37.999Z</lastmod>
 	</url>
 </urlset>
