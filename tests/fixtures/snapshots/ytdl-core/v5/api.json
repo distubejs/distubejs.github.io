@@ -1,0 +1,167 @@
+{
+	"schemaVersion": "2.0",
+	"id": 0,
+	"name": "@distube/ytdl-core",
+	"variant": "project",
+	"kind": 1,
+	"flags": {},
+	"children": [
+		{
+			"id": 4,
+			"name": "VideoInfo",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"children": [
+				{
+					"id": 5,
+					"name": "id",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 6,
+					"name": "title",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						5,
+						6
+					]
+				}
+			]
+		},
+		{
+			"id": 1,
+			"name": "getInfo",
+			"variant": "declaration",
+			"kind": 64,
+			"flags": {},
+			"signatures": [
+				{
+					"id": 2,
+					"name": "getInfo",
+					"variant": "signature",
+					"kind": 4096,
+					"flags": {},
+					"parameters": [
+						{
+							"id": 3,
+							"name": "url",
+							"variant": "param",
+							"kind": 32768,
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": {
+							"packageName": "typescript",
+							"packagePath": "lib/lib.es5.d.ts",
+							"qualifiedName": "Promise"
+						},
+						"typeArguments": [
+							{
+								"type": "reference",
+								"target": 4,
+								"name": "VideoInfo",
+								"package": "@distube/ytdl-core"
+							}
+						],
+						"name": "Promise",
+						"package": "typescript"
+					}
+				}
+			]
+		}
+	],
+	"groups": [
+		{
+			"title": "Interfaces",
+			"children": [
+				4
+			]
+		},
+		{
+			"title": "Functions",
+			"children": [
+				1
+			]
+		}
+	],
+	"packageName": "@distube/ytdl-core",
+	"readme": [
+		{
+			"kind": "text",
+			"text": "# ytdl-core\n\nThe ytdl-core readme."
+		}
+	],
+	"symbolIdMap": {
+		"0": {
+			"packageName": "@distube/ytdl-core",
+			"packagePath": "dist/index.d.ts",
+			"qualifiedName": ""
+		},
+		"1": {
+			"packageName": "@distube/ytdl-core",
+			"packagePath": "dist/index.d.ts",
+			"qualifiedName": "getInfo"
+		},
+		"2": {
+			"packageName": "@distube/ytdl-core",
+			"packagePath": "dist/index.d.ts",
+			"qualifiedName": "getInfo"
+		},
+		"3": {
+			"packageName": "@distube/ytdl-core",
+			"packagePath": "dist/index.d.ts",
+			"qualifiedName": "url"
+		},
+		"4": {
+			"packageName": "@distube/ytdl-core",
+			"packagePath": "dist/index.d.ts",
+			"qualifiedName": "VideoInfo"
+		},
+		"5": {
+			"packageName": "@distube/ytdl-core",
+			"packagePath": "dist/index.d.ts",
+			"qualifiedName": "VideoInfo.id"
+		},
+		"6": {
+			"packageName": "@distube/ytdl-core",
+			"packagePath": "dist/index.d.ts",
+			"qualifiedName": "VideoInfo.title"
+		}
+	},
+	"files": {
+		"entries": {
+			"1": "../../../../tmp/tmp.dxgk2sXGIi/ytdl/dist/index.d.ts",
+			"2": "../../../../tmp/tmp.dxgk2sXGIi/ytdl/README.md",
+			"3": "../../../../tmp/tmp.dxgk2sXGIi/ytdl"
+		},
+		"reflections": {
+			"1": 0,
+			"2": 0,
+			"3": 0
+		}
+	}
+}

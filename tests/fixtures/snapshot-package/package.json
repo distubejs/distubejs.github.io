@@ -1,0 +1,17 @@
+{
+  "name": "@distube/fixture",
+  "version": "2.1.0",
+  "description": "Fixture package",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    },
+    "./extra": {
+      "types": "./dist/extra.d.ts"
+    }
+  }
+}

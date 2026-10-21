@@ -1,0 +1,318 @@
+{
+	"schemaVersion": "2.0",
+	"id": 0,
+	"name": "distube",
+	"variant": "project",
+	"kind": 1,
+	"flags": {},
+	"children": [
+		{
+			"id": 1,
+			"name": "index",
+			"variant": "declaration",
+			"kind": 2,
+			"flags": {},
+			"children": [
+				{
+					"id": 2,
+					"name": "DisTube",
+					"variant": "declaration",
+					"kind": 128,
+					"flags": {},
+					"children": [
+						{
+							"id": 3,
+							"name": "constructor",
+							"variant": "declaration",
+							"kind": 512,
+							"flags": {},
+							"signatures": [
+								{
+									"id": 4,
+									"name": "DisTube",
+									"variant": "signature",
+									"kind": 16384,
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"target": 2,
+										"name": "DisTube",
+										"package": "distube"
+									}
+								}
+							]
+						},
+						{
+							"id": 5,
+							"name": "play",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"signatures": [
+								{
+									"id": 6,
+									"name": "play",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"parameters": [
+										{
+											"id": 7,
+											"name": "channel",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										},
+										{
+											"id": 8,
+											"name": "input",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"target": {
+											"packageName": "typescript",
+											"packagePath": "lib/lib.es5.d.ts",
+											"qualifiedName": "Promise"
+										},
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "void"
+											}
+										],
+										"name": "Promise",
+										"package": "typescript"
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"children": [
+								3
+							]
+						},
+						{
+							"title": "Methods",
+							"children": [
+								5
+							]
+						}
+					]
+				},
+				{
+					"id": 9,
+					"name": "majorV6",
+					"variant": "declaration",
+					"kind": 32,
+					"flags": {
+						"isConst": true
+					},
+					"type": {
+						"type": "intrinsic",
+						"name": "number"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"children": [
+						2
+					]
+				},
+				{
+					"title": "Variables",
+					"children": [
+						9
+					]
+				}
+			]
+		},
+		{
+			"id": 10,
+			"name": "integrations",
+			"variant": "declaration",
+			"kind": 2,
+			"flags": {},
+			"children": [
+				{
+					"id": 11,
+					"name": "SourcePlugin",
+					"variant": "declaration",
+					"kind": 256,
+					"flags": {},
+					"children": [
+						{
+							"id": 12,
+							"name": "resolve",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"signatures": [
+								{
+									"id": 13,
+									"name": "resolve",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"parameters": [
+										{
+											"id": 14,
+											"name": "input",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"target": {
+											"packageName": "typescript",
+											"packagePath": "lib/lib.es5.d.ts",
+											"qualifiedName": "Promise"
+										},
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "string"
+											}
+										],
+										"name": "Promise",
+										"package": "typescript"
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Methods",
+							"children": [
+								12
+							]
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Interfaces",
+					"children": [
+						11
+					]
+				}
+			]
+		}
+	],
+	"groups": [
+		{
+			"title": "Modules",
+			"children": [
+				1,
+				10
+			]
+		}
+	],
+	"packageName": "distube",
+	"readme": [
+		{
+			"kind": "text",
+			"text": "# distube\n\nThe v6 readme."
+		}
+	],
+	"symbolIdMap": {
+		"1": {
+			"packageName": "distube",
+			"packagePath": "dist/index.d.ts",
+			"qualifiedName": ""
+		},
+		"2": {
+			"packageName": "distube",
+			"packagePath": "dist/index.d.ts",
+			"qualifiedName": "DisTube"
+		},
+		"5": {
+			"packageName": "distube",
+			"packagePath": "dist/index.d.ts",
+			"qualifiedName": "DisTube.play"
+		},
+		"6": {
+			"packageName": "distube",
+			"packagePath": "dist/index.d.ts",
+			"qualifiedName": "DisTube.play"
+		},
+		"7": {
+			"packageName": "distube",
+			"packagePath": "dist/index.d.ts",
+			"qualifiedName": "channel"
+		},
+		"8": {
+			"packageName": "distube",
+			"packagePath": "dist/index.d.ts",
+			"qualifiedName": "input"
+		},
+		"9": {
+			"packageName": "distube",
+			"packagePath": "dist/index.d.ts",
+			"qualifiedName": "majorV6"
+		},
+		"10": {
+			"packageName": "distube",
+			"packagePath": "dist/integrations.d.ts",
+			"qualifiedName": ""
+		},
+		"11": {
+			"packageName": "distube",
+			"packagePath": "dist/integrations.d.ts",
+			"qualifiedName": "SourcePlugin"
+		},
+		"12": {
+			"packageName": "distube",
+			"packagePath": "dist/integrations.d.ts",
+			"qualifiedName": "SourcePlugin.resolve"
+		},
+		"13": {
+			"packageName": "distube",
+			"packagePath": "dist/integrations.d.ts",
+			"qualifiedName": "SourcePlugin.resolve"
+		},
+		"14": {
+			"packageName": "distube",
+			"packagePath": "dist/integrations.d.ts",
+			"qualifiedName": "input"
+		}
+	},
+	"files": {
+		"entries": {
+			"1": "../../../../tmp/tmp.dxgk2sXGIi/distube6/dist/index.d.ts",
+			"2": "../../../../tmp/tmp.dxgk2sXGIi/distube6/dist/integrations.d.ts",
+			"3": "../../../../tmp/tmp.dxgk2sXGIi/distube6/README.md",
+			"4": "../../../../tmp/tmp.dxgk2sXGIi/distube6"
+		},
+		"reflections": {
+			"1": 1,
+			"2": 10,
+			"3": 0,
+			"4": 0
+		}
+	}
+}

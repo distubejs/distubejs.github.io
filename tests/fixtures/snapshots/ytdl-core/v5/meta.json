@@ -1,0 +1,5 @@
+{
+  "name": "@distube/ytdl-core",
+  "version": "5.0.2",
+  "description": "YouTube downloads for Node.js"
+}
