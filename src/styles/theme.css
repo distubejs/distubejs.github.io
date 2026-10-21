@@ -181,3 +181,12 @@ html[data-has-hero] header.header {
   height: 2.25rem;
   width: auto;
 }
+
+@media (min-width: 50rem) {
+  .header {
+    --sl-content-inline-start: var(--sl-sidebar-width);
+    --sl-content-width: 45rem;
+    --__sidebar-pad: calc(2 * var(--sl-nav-pad-x));
+    --__toc-width: initial;
+  }
+}

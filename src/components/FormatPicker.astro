@@ -112,7 +112,7 @@ const length = `${Math.floor(video.lengthSeconds / 60)}:${String(video.lengthSec
 
 <style>
   .yt-picker {
-    width: min(100%, 36rem);
+    width: 100%;
     display: grid;
     gap: 1rem;
     font-size: 1rem;
@@ -239,10 +239,6 @@ const length = `${Math.floor(video.lengthSeconds / 60)}:${String(video.lengthSec
   }
 
   @media (max-width: 50rem) {
-    .yt-picker {
-      width: 100%;
-    }
-
     .yt-picker-formats li {
       grid-template-columns: 2.5rem 1fr;
       gap: 0.75rem;

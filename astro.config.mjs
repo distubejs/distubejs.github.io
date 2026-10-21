@@ -19,6 +19,7 @@ export default defineConfig({
       title: "DisTube",
       description: "Documentation for DisTube, its official plugins and ytdl-core.",
       customCss: ["./src/styles/theme.css"],
+      expressiveCode: { defaultProps: { wrap: true } },
       components: {
         Hero: "./src/components/Hero.astro",
         SocialIcons: "./src/components/SocialIcons.astro",

@@ -19,9 +19,6 @@ const distube = [
       <a class="yt-button" href="/distube/">Read the DisTube docs</a>
       <a class="yt-link" href="https://github.com/skick1234/DisTube">GitHub</a>
     </div>
-    <div class="yt-hero-install">
-      <pre><code>bun add distube @distube/discordjs</code></pre>
-    </div>
   </div>
 
   <div class="yt-hero-stage">
@@ -53,10 +50,6 @@ const distube = [
       <a class="yt-button" href="/ytdl-core/guides/getting-started/">Download your first video</a>
       <a class="yt-link" href="/ytdl-core/api/readme/">API reference</a>
     </div>
-    <div class="yt-hero-install">
-      <pre><code>npm install @distube/ytdl-core</code></pre>
-      <pre><code>bun add @distube/ytdl-core</code></pre>
-    </div>
   </div>
 
   <div class="yt-hero-stage">
@@ -81,22 +74,7 @@ const distube = [
     gap: 2rem;
   }
 
-  .yt-hero-install {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    animation: yt-fade 700ms 500ms var(--yt-ease) both;
-  }
 
-  .yt-hero-install pre {
-    max-width: 100%;
-    overflow-x: auto;
-    margin: 0;
-    padding: 0.875rem 1.25rem;
-    border-radius: 8px;
-    background: var(--yt-surface);
-    font-size: 1rem;
-  }
 
   .yt-hero h1,
   .yt-hero h2 {
@@ -150,12 +128,12 @@ const distube = [
   .yt-hero-stage {
     background: var(--yt-surface);
     display: grid;
-    place-items: center end;
+    place-items: center stretch;
     padding: var(--yt-margin);
   }
 
   .yt-products {
-    width: min(100%, 36rem);
+    width: 100%;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -204,16 +182,12 @@ const distube = [
       height: auto;
     }
 
-    .yt-products {
-      width: 100%;
-    }
   }
 
   @media (prefers-reduced-motion: reduce) {
     .yt-line > span,
     .yt-hero-lead,
     .yt-hero-actions,
-    .yt-hero-install,
     .yt-products {
       animation: none;
     }
