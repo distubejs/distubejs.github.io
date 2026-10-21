@@ -29,6 +29,7 @@ interface Product {
   label: string;
   description: string;
   slugs: string[];
+  packagesLabel: string;
 }
 
 export interface SiteDocs {
@@ -40,24 +41,30 @@ export interface SiteDocs {
 
 const majorDir = /^v\d+$/;
 const archivedPath = /^\/[^/]+\/v\d+(\/|$)/;
-const pluginsDir = "plugins";
 
 const products = {
   distube: {
     id: "distube",
     label: "DisTube",
-    description: "the DisTube client and its Discord adapters",
-    slugs: ["distube", "discordjs", "eris", "oceanic"],
+    description: "the DisTube client, its Discord adapters and official plugins",
+    slugs: ["distube", "discordjs", "oceanic"],
+    packagesLabel: "Adapters",
   },
   ytdl: {
     id: "ytdl-core",
     label: "ytdl-core",
     description: "the standalone YouTube downloader",
     slugs: ["ytdl-core"],
+    packagesLabel: "Packages",
   },
 } satisfies Record<string, Product>;
 
 const publicSlugs = new Set(Object.values(products).flatMap((product) => product.slugs));
+const nestedApiSlugs = new Set(
+  Object.values(products)
+    .filter((product) => product.slugs.length > 1)
+    .flatMap((product) => product.slugs),
+);
 
 export function isArchived(pathname: string): boolean {
   return archivedPath.test(pathname);
@@ -106,7 +113,7 @@ function stageMajor(source: string, contentDir: string, slug: string, major: num
     result.plugin = typeDoc({
       entryPoints: [apiJson],
       output: `${base}/api`,
-      sidebar: { label: "API reference", collapsed: true },
+      sidebar: { label: nestedApiSlugs.has(slug) ? meta.name : "API reference", collapsed: true },
       typeDoc: {
         entryPointStrategy: "merge",
         interfacePropertiesFormat: "table",
@@ -125,27 +132,49 @@ function label(entry: string): string {
   return name.charAt(0).toUpperCase() + name.slice(1);
 }
 
-function guideItems(major: Major, skip: string[]): SidebarItem[] {
-  return major.entries
-    .filter((entry) => !skip.includes(entry))
-    .map((entry) =>
-      entry.endsWith(".md")
+function guideItems(major: Major): SidebarItem[] {
+  return major.entries.map((entry) =>
+    entry === "guides"
+      ? { autogenerate: { directory: `${major.base}/guides` } }
+      : entry.endsWith(".md")
         ? `${major.base}/${entry.replace(/\.md$/, "")}`
         : { label: label(entry), items: [{ autogenerate: { directory: `${major.base}/${entry}` } }] },
-    );
+  );
 }
 
-function packageItems(current: Major, archived: Major[]): SidebarItem[] {
+interface Staged {
+  current: Major;
+  archived: Major[];
+}
+
+function productItems(product: Product, [main, ...packages]: [Staged, ...Staged[]]): SidebarItem[] {
+  const guides = [
+    ...guideItems(main.current),
+    ...(packages.length > 0
+      ? [
+          {
+            label: product.packagesLabel,
+            items: packages.map(({ current }) => ({ label: current.meta.name, link: `/${current.base}/` })),
+          },
+        ]
+      : []),
+  ];
+  const apis = [main, ...packages].flatMap(({ current }) => (current.api ? [current.api] : []));
   return [
-    { label: "Overview", link: `/${current.base}/` },
-    ...guideItems(current, current.slug === "distube" ? [pluginsDir] : []),
-    ...(current.api ? [current.api] : []),
-    ...archived.map((major) => ({ label: `v${major.major} (${major.meta.version})`, link: `/${major.base}/` })),
+    { label: "Overview", link: `/${main.current.base}/` },
+    ...(guides.length > 0 ? [{ label: "Guides", items: guides }] : []),
+    ...(apis.length > 1 ? [{ label: "API reference", collapsed: true, items: apis }] : apis),
+    ...[main, ...packages].flatMap(({ archived }) =>
+      archived.map((major) => ({
+        label: `${major.meta.name} v${major.major} (${major.meta.version})`,
+        link: `/${major.base}/`,
+      })),
+    ),
   ];
 }
 
-function currentPaths(major: Major, skip: string[]): string[] {
-  const names = [...major.entries.filter((entry) => !skip.includes(entry)), ...(major.api ? ["api"] : [])];
+function currentPaths(major: Major): string[] {
+  const names = [...major.entries, ...(major.api ? ["api"] : [])];
   return [
     major.base,
     ...names.flatMap((name) => [`${major.base}/${name.replace(/\.md$/, "")}`, `${major.base}/${name}/**`]),
@@ -159,53 +188,26 @@ interface Topic {
   set: CustomSet;
 }
 
-function pluginsTopic(distube: Major | undefined): Topic | undefined {
-  if (!distube?.entries.includes(pluginsDir)) return undefined;
-  const id = "distube-plugins";
-  return {
-    id,
-    config: {
-      id,
-      label: "DisTube Plugins",
-      link: `/distube/${pluginsDir}/`,
-      items: [{ autogenerate: { directory: `distube/${pluginsDir}` } }],
-    },
-    patterns: [`/distube/${pluginsDir}/**`, `/distube/v*/${pluginsDir}/**`],
-    set: {
-      label: "DisTube Plugins",
-      description: "the official DisTube plugins",
-      paths: [`distube/${pluginsDir}`, `distube/${pluginsDir}/**`],
-    },
-  };
-}
-
 function productTopic(product: Product, bySlug: Map<string, Major[]>): Topic | undefined {
-  const staged = product.slugs.flatMap((slug) => {
+  const staged = product.slugs.flatMap((slug): Staged[] => {
     const [current, ...archived] = bySlug.get(slug) ?? [];
     return current ? [{ current, archived }] : [];
   });
-  const first = staged[0];
+  const [first, ...rest] = staged;
   if (!first) return undefined;
-  const skip = (major: Major) => (major.slug === "distube" ? [pluginsDir] : []);
   return {
     id: product.id,
     config: {
       id: product.id,
       label: product.label,
       link: `/${first.current.base}/`,
-      items:
-        staged.length === 1
-          ? packageItems(first.current, first.archived)
-          : staged.map(({ current, archived }) => ({
-              label: current.meta.name,
-              items: packageItems(current, archived),
-            })),
+      items: productItems(product, [first, ...rest]),
     },
     patterns: staged.flatMap(({ current }) => [`/${current.slug}`, `/${current.slug}/**`]),
     set: {
       label: product.label,
       description: product.description,
-      paths: staged.flatMap(({ current }) => currentPaths(current, skip(current))),
+      paths: staged.flatMap(({ current }) => currentPaths(current)),
     },
   };
 }
@@ -228,16 +230,14 @@ export function stageSnapshots(snapshotsDir: string, contentDir: string): SiteDo
     );
   }
 
-  const distube = productTopic(products.distube, bySlug);
-  const plugins = pluginsTopic(bySlug.get("distube")?.[0]);
-  const ytdl = productTopic(products.ytdl, bySlug);
-  const ordered = [distube, plugins, ytdl].filter((topic) => topic !== undefined);
-  const byFallbackPrecedence = [plugins, distube, ytdl].filter((topic) => topic !== undefined);
+  const topics = [productTopic(products.distube, bySlug), productTopic(products.ytdl, bySlug)].filter(
+    (topic) => topic !== undefined,
+  );
 
   return {
     typeDocPlugins: [...bySlug.values()].flat().flatMap((major) => (major.plugin ? [major.plugin] : [])),
-    topics: ordered.map((topic) => topic.config),
-    topicOptions: { topics: Object.fromEntries(byFallbackPrecedence.map((topic) => [topic.id, topic.patterns])) },
-    llmsSets: ordered.map((topic) => topic.set),
+    topics: topics.map((topic) => topic.config),
+    topicOptions: { topics: Object.fromEntries(topics.map((topic) => [topic.id, topic.patterns])) },
+    llmsSets: topics.map((topic) => topic.set),
   };
 }

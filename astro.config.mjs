@@ -34,8 +34,8 @@ export default defineConfig({
       ],
       social: [{ icon: "github", label: "GitHub", href: "https://github.com/skick1234/DisTube" }],
       plugins: [
-        ...docs.typeDocPlugins,
         ...(docs.topics.length > 0 ? [starlightSidebarTopics(docs.topics, docs.topicOptions)] : []),
+        ...docs.typeDocPlugins,
         starlightLlmsTxt({
           projectName: "DisTube",
           customSets: docs.llmsSets,

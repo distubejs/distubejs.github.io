@@ -63,13 +63,14 @@ describe("site built from fixture snapshots", () => {
 
   test("llms.txt links one set per product and only llms-full.txt includes archived majors", async () => {
     const llms = await read("llms.txt");
-    for (const set of ["distube", "distube-plugins", "ytdl-core"]) {
+    for (const set of ["distube", "ytdl-core"]) {
       expect(llms).toContain(`(https://distube.js.org/_llms-txt/${set}.txt)`);
     }
     expect(llms).not.toContain("/v6/");
-    for (const file of ["llms-small.txt", "_llms-txt/distube.txt", "_llms-txt/distube-plugins.txt"]) {
-      expect(await read(file)).not.toContain("major-6");
-    }
+    expect(await read("llms-small.txt")).not.toContain("major-6");
+    const distube = await read("_llms-txt/distube.txt");
+    expect(distube).toContain("major-7-youtube");
+    expect(distube).not.toContain("major-6");
     const ytdl = await read("_llms-txt/ytdl-core.txt");
     expect(ytdl).toContain("ytdl-formats");
     expect(ytdl).not.toContain("major-7");
@@ -79,6 +80,27 @@ describe("site built from fixture snapshots", () => {
     const source = await readFile(join(fixtures, "distube/v7/docs/guides/events.md"), "utf8");
     const body = source.replace(/^---\n[\s\S]*?\n---\n/, "").trim();
     expect(await read("distube/guides/events.md")).toBe(body);
+  });
+
+  test("the DisTube sidebar has Guides with plugins and adapters, then one API reference per package", async () => {
+    const page = await read("distube/guides/events/index.html");
+    const sidebar = page.slice(page.indexOf('<ul class="top-level'), page.indexOf("</sl-sidebar-state-persist>"));
+    const labels = [
+      ">Overview<",
+      ">Guides<",
+      ">Plugins<",
+      ">Adapters<",
+      ">@distube/discordjs<",
+      ">API reference<",
+      ">distube<",
+      ">@distube/discordjs<",
+    ];
+    let from = 0;
+    for (const label of labels) {
+      from = sidebar.indexOf(label, from);
+      expect(from, label).toBeGreaterThanOrEqual(0);
+    }
+    expect(page).not.toContain("Symbol(");
   });
 
   test("the distube API reference documents both entry points", async () => {
@@ -99,8 +121,11 @@ describe("site built from fixture snapshots", () => {
     ]);
   });
 
-  test("plugin pages are DisTube guides with no section of their own", async () => {
-    expect(await read("distube/plugins/youtube/index.html")).toContain("major-7-youtube");
+  test("plugin pages are DisTube guides with no section or topic of their own", async () => {
+    const page = await read("distube/plugins/youtube/index.html");
+    expect(page).toContain("major-7-youtube");
+    expect(page).toMatch(/starlight-sidebar-topics-current[^>]*><div[^>]*>DisTube</);
+    expect(page).not.toContain("DisTube Plugins</div>");
     expect(await exists(join(dist, "youtube"))).toBe(false);
   });
 
