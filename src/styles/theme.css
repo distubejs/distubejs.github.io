@@ -176,3 +176,8 @@ html[data-has-hero] header.header {
 .yt-link:hover {
   color: var(--yt-accent-text);
 }
+
+.sl-markdown-content a[href^="https://ko-fi.com"] img {
+  height: 2.25rem;
+  width: auto;
+}

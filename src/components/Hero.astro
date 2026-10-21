@@ -1,8 +1,10 @@
 ---
-const products = [
-  { name: "DisTube", href: "/distube/", line: "Play music in Discord voice channels with discord.js, Eris or Oceanic." },
-  { name: "DisTube Plugins", href: "/distube/plugins/", line: "Official YouTube, SoundCloud, Spotify and Lavalink sources." },
-  { name: "ytdl-core", href: "/ytdl-core/", line: "Read YouTube video info and stream any format from Node.js." },
+import FormatPicker from "./FormatPicker.astro";
+
+const distube = [
+  { name: "Quick start", href: "/distube/guides/quick-start/", line: "Play a song in a voice channel with discord.js or Oceanic." },
+  { name: "Plugins", href: "/distube/plugins/", line: "Official YouTube, SoundCloud, Spotify and Lavalink sources." },
+  { name: "API reference", href: "/distube/api/readme/", line: "Every class, event and integration contract." },
 ];
 ---
 
@@ -12,7 +14,7 @@ const products = [
       <span class="yt-line"><span>Music bots</span></span>
       <span class="yt-line"><span>for Discord</span></span>
     </h1>
-    <p class="yt-hero-lead">Guides and API reference for DisTube, its official plugins and ytdl-core.</p>
+    <p class="yt-hero-lead">Queue, play and filter music in voice channels. Sources come from plugins.</p>
     <div class="yt-hero-actions">
       <a class="yt-button" href="/distube/">Read the DisTube docs</a>
       <a class="yt-link" href="https://github.com/skick1234/DisTube">GitHub</a>
@@ -23,18 +25,42 @@ const products = [
   </div>
 
   <div class="yt-hero-stage">
-    <ol class="yt-products" aria-label="Products">
+    <ol class="yt-products" aria-label="DisTube">
       {
-        products.map((product) => (
+        distube.map((item) => (
           <li>
-            <a href={product.href}>
-              <strong>{product.name}</strong>
-              <span>{product.line}</span>
+            <a href={item.href}>
+              <strong>{item.name}</strong>
+              <span>{item.line}</span>
             </a>
           </li>
         ))
       }
     </ol>
+  </div>
+</section>
+
+<section class="yt-hero" aria-labelledby="ytdl-core">
+  <div class="yt-hero-copy">
+    <h2 id="ytdl-core">
+      <span class="yt-line"><span>YouTube downloads</span></span>
+      <span class="yt-line"><span>for Node.js</span></span>
+    </h2>
+    <p class="yt-hero-lead">
+      Read a video's details and every format, then stream the one you want. Signatures are solved on your machine.
+    </p>
+    <div class="yt-hero-actions">
+      <a class="yt-button" href="/ytdl-core/guides/getting-started/">Download your first video</a>
+      <a class="yt-link" href="/ytdl-core/api/readme/">API reference</a>
+    </div>
+    <div class="yt-hero-install">
+      <pre><code>npm install @distube/ytdl-core</code></pre>
+      <pre><code>bun add @distube/ytdl-core</code></pre>
+    </div>
+  </div>
+
+  <div class="yt-hero-stage">
+    <FormatPicker />
   </div>
 </section>
 
@@ -63,6 +89,8 @@ const products = [
   }
 
   .yt-hero-install pre {
+    max-width: 100%;
+    overflow-x: auto;
     margin: 0;
     padding: 0.875rem 1.25rem;
     border-radius: 8px;
@@ -70,7 +98,8 @@ const products = [
     font-size: 1rem;
   }
 
-  .yt-hero h1 {
+  .yt-hero h1,
+  .yt-hero h2 {
     font-size: var(--step-display);
   }
 

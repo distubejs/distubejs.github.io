@@ -1,0 +1,37 @@
+---
+import { Icon } from "@astrojs/starlight/components";
+
+const repo = Astro.url.pathname.startsWith("/ytdl-core") ? "distubejs/ytdl-core" : "skick1234/DisTube";
+---
+
+<a class="kofi" href="https://ko-fi.com/skick">
+  <img src="https://storage.ko-fi.com/cdn/kofi3.png" alt="Support on Ko-fi" width="127" height="32" />
+</a>
+<a class="github" href={`https://github.com/${repo}`} rel="me">
+  <Icon name="github" size="1.5rem" />
+  <span>GitHub</span>
+</a>
+
+<style>
+  a {
+    display: flex;
+    align-items: center;
+  }
+
+  .kofi img {
+    display: block;
+    height: 2rem;
+    width: auto;
+  }
+
+  .github {
+    gap: 0.5rem;
+    color: var(--sl-color-white);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .github:hover {
+    color: var(--sl-color-text-accent);
+  }
+</style>

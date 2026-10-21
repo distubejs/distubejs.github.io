@@ -1,0 +1,252 @@
+---
+import { formats, type MockFormat, video } from "../data/big-buck-bunny.ts";
+import { chooseFormat, type Criteria, Quality } from "../data/choose-format.ts";
+
+const filters: [string, Criteria | undefined][] = [
+  ["Any", undefined],
+  ["Audio and video", { hasAudio: true, hasVideo: true }],
+  ["Audio only", { hasVideo: false }],
+  ["Video only", { hasAudio: false }],
+];
+const qualities = Object.entries(Quality);
+
+const keyOf = (format: MockFormat) => `${format.itag}-${format.isDrc}`;
+const spaced = (name: string) => name.replace(/(?<=[a-z])(?=[A-Z])/gu, " ").toLowerCase().replace(/^./u, (c) => c.toUpperCase());
+const criteria = (filter: Criteria | undefined) =>
+  filter ? `{ ${Object.entries(filter).map(([key, value]) => `${key}: ${String(value)}`).join(", ")} }` : "";
+
+function label(format: MockFormat): string {
+  const codec = format.videoCodec ?? format.audioCodec ?? format.codecs;
+  const quality = format.qualityLabel ?? `${format.audioBitrate} kbps${format.isDrc ? " stable volume" : ""}`;
+  const size = format.contentLength === undefined ? "size unknown" : `${(format.contentLength / 1e6).toFixed(1)} MB`;
+  return `${format.container} ${codec.split(".")[0]} · ${quality} · ${size}`;
+}
+
+const picks = new Map<string, string[]>();
+for (const [, quality] of qualities) {
+  for (const [index, [, filter]] of filters.entries()) {
+    const chosen = chooseFormat(formats, quality, filter);
+    const key = chosen && keyOf(chosen);
+    if (key) picks.set(key, [...(picks.get(key) ?? []), `${quality}:${index}`]);
+  }
+}
+const initial = chooseFormat(formats, Quality.Highest);
+const length = `${Math.floor(video.lengthSeconds / 60)}:${String(video.lengthSeconds % 60).padStart(2, "0")}`;
+---
+
+<form class="yt-picker" aria-label="Format picker">
+  <div class="yt-picker-video">
+    <strong>{video.title}</strong>
+    <span>{video.author} · {length} · {formats.length} formats</span>
+  </div>
+  <fieldset>
+    <legend>quality</legend>
+    {
+      qualities.map(([name, value], i) => (
+        <label>
+          <input type="radio" name="quality" value={value} data-name={name} checked={i === 0} />
+          <span>{spaced(name)}</span>
+        </label>
+      ))
+    }
+  </fieldset>
+  <fieldset>
+    <legend>filter</legend>
+    {
+      filters.map(([name, filter], i) => (
+        <label>
+          <input type="radio" name="filter" value={i} data-filter={criteria(filter)} checked={i === 0} />
+          <span>{name}</span>
+        </label>
+      ))
+    }
+  </fieldset>
+  <pre class="yt-picker-code"><code>yt.download(info, {"{"} <span data-code>quality: Quality.Highest</span> {"}"})</code></pre>
+  <output class="yt-picker-result" data-result>{initial && `itag ${initial.itag} · ${label(initial)}`}</output>
+  <ol class="yt-picker-formats" data-formats>
+    {
+      formats.map((format) => (
+        <li
+          data-picks={picks.get(keyOf(format))?.join(" ")}
+          data-result={`itag ${format.itag} · ${label(format)}`}
+          aria-current={format === initial ? "true" : undefined}
+        >
+          <span>{format.itag}</span>
+          <span>{label(format)}</span>
+        </li>
+      ))
+    }
+  </ol>
+</form>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>(".yt-picker");
+  const code = form?.querySelector("[data-code]");
+  const result = form?.querySelector("[data-result]");
+  const list = form?.querySelector<HTMLElement>("[data-formats]");
+
+  function update() {
+    const quality = form?.querySelector<HTMLInputElement>("input[name=quality]:checked");
+    const filter = form?.querySelector<HTMLInputElement>("input[name=filter]:checked");
+    if (!code || !result || !list || !quality || !filter) return;
+    code.textContent = [
+      `quality: Quality.${quality.dataset.name}`,
+      ...(filter.dataset.filter ? [`filter: ${filter.dataset.filter}`] : []),
+    ].join(", ");
+    for (const row of list.children) row.removeAttribute("aria-current");
+    const row = list.querySelector<HTMLElement>(`[data-picks~="${quality.value}:${filter.value}"]`);
+    if (!row) {
+      result.textContent = "YtdlError NO_FORMAT: no format matches";
+      result.setAttribute("data-error", "");
+      return;
+    }
+    result.textContent = row.dataset.result ?? "";
+    result.removeAttribute("data-error");
+    row.setAttribute("aria-current", "true");
+    list.scrollTo({ top: row.offsetTop - list.clientHeight / 2 + row.clientHeight / 2, behavior: "smooth" });
+  }
+
+  form?.addEventListener("change", update);
+  form?.addEventListener("submit", (event) => event.preventDefault());
+</script>
+
+<style>
+  .yt-picker {
+    width: min(100%, 36rem);
+    display: grid;
+    gap: 1rem;
+    font-size: 1rem;
+    color: var(--yt-ink);
+  }
+
+  .yt-picker-video {
+    display: grid;
+    gap: 0.25rem;
+  }
+
+  .yt-picker-video strong {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .yt-picker-video span,
+  .yt-picker legend {
+    color: var(--yt-muted);
+  }
+
+  .yt-picker fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .yt-picker legend {
+    padding: 0 0 0.5rem;
+  }
+
+  .yt-picker label {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .yt-picker input {
+    position: absolute;
+    opacity: 0;
+    inset: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+
+  .yt-picker label span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.25rem;
+    padding: 0 0.875rem;
+    border-radius: 8px;
+    background: var(--yt-surface-2);
+    transition:
+      background-color 160ms var(--yt-ease),
+      transform 160ms var(--yt-ease);
+  }
+
+  .yt-picker label:hover span {
+    background: color-mix(in srgb, var(--yt-surface-2), var(--yt-ink) 12%);
+  }
+
+  .yt-picker label:active span {
+    transform: scale(0.96);
+  }
+
+  .yt-picker input:checked + span {
+    background: var(--yt-ink);
+    color: var(--yt-bg);
+    font-weight: 600;
+  }
+
+  .yt-picker input:focus-visible + span {
+    outline: 3px solid var(--yt-accent-text);
+    outline-offset: 2px;
+  }
+
+  .yt-picker-code {
+    margin: 0;
+    padding: 0.875rem 1rem;
+    border-radius: 8px;
+    background: var(--yt-bg);
+    overflow-x: auto;
+    font-size: 1rem;
+  }
+
+  .yt-picker-result {
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .yt-picker-result[data-error] {
+    color: var(--yt-accent-text);
+  }
+
+  .yt-picker-formats {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 15.5rem;
+    overflow-y: auto;
+    position: relative;
+    border-radius: 8px;
+    background: var(--yt-bg);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .yt-picker-formats li {
+    display: grid;
+    grid-template-columns: 3.5rem 1fr;
+    gap: 1rem;
+    padding: 0.4rem 1rem;
+    color: var(--yt-muted);
+    transition:
+      background-color 200ms var(--yt-ease),
+      color 200ms var(--yt-ease);
+  }
+
+  .yt-picker-formats li[aria-current] {
+    background: var(--yt-accent);
+    color: var(--yt-accent-ink);
+    font-weight: 600;
+  }
+
+  @media (max-width: 50rem) {
+    .yt-picker {
+      width: 100%;
+    }
+
+    .yt-picker-formats li {
+      grid-template-columns: 2.5rem 1fr;
+      gap: 0.75rem;
+      padding-inline: 0.75rem;
+    }
+  }
+</style>

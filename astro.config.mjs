@@ -19,7 +19,11 @@ export default defineConfig({
       title: "DisTube",
       description: "Documentation for DisTube, its official plugins and ytdl-core.",
       customCss: ["./src/styles/theme.css"],
-      components: { Hero: "./src/components/Hero.astro" },
+      components: {
+        Hero: "./src/components/Hero.astro",
+        SocialIcons: "./src/components/SocialIcons.astro",
+        Footer: "./src/components/Footer.astro",
+      },
       routeMiddleware: "./src/routeData.ts",
       head: [
         { tag: "link", attrs: { rel: "expect", href: "#_top", blocking: "render" } },
@@ -32,7 +36,6 @@ export default defineConfig({
         { tag: "meta", attrs: { property: "og:image:height", content: "630" } },
         { tag: "meta", attrs: { name: "twitter:image", content: `${site}/og.png` } },
       ],
-      social: [{ icon: "github", label: "GitHub", href: "https://github.com/skick1234/DisTube" }],
       plugins: [
         ...(docs.topics.length > 0 ? [starlightSidebarTopics(docs.topics, docs.topicOptions)] : []),
         ...docs.typeDocPlugins,

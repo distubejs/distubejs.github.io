@@ -108,17 +108,21 @@ describe("site built from fixture snapshots", () => {
     expect(await exists(join(dist, "distube/api/integrations/interfaces/sourceplugin/index.html"))).toBe(true);
   });
 
-  test("the landing hero links DisTube, DisTube Plugins and ytdl-core in that order", async () => {
-    const products = (await read("index.html")).match(/<ol[^>]*yt-products[\s\S]*?<\/ol>/)?.[0] ?? "";
-    const links = [...products.matchAll(/<a href="([^"]+)"[^>]*><strong[^>]*>([^<]+)<\/strong>/g)].map((m) => [
-      m[2],
-      m[1],
-    ]);
-    expect(links).toEqual([
-      ["DisTube", "/distube/"],
-      ["DisTube Plugins", "/distube/plugins/"],
-      ["ytdl-core", "/ytdl-core/"],
-    ]);
+  test("the landing page shows the DisTube hero, then the ytdl-core hero with a format picker", async () => {
+    const page = await read("index.html");
+    const distube = page.indexOf('href="/distube/"');
+    const ytdl = page.indexOf('href="/ytdl-core/guides/getting-started/"');
+    expect(distube).toBeGreaterThan(-1);
+    expect(ytdl).toBeGreaterThan(distube);
+    expect(page.indexOf('class="yt-picker')).toBeGreaterThan(ytdl);
+  });
+
+  test("the format picker marks the format chooseFormat picks for every quality and filter", async () => {
+    const page = await read("index.html");
+    const picks = [...page.matchAll(/data-picks="([^"]+)"/g)].flatMap((m) => m[1]?.split(" ") ?? []);
+    expect(picks).toContain("highest:0");
+    expect(picks).toContain("highestaudio:2");
+    expect(new Set(picks).size).toBe(picks.length);
   });
 
   test("plugin pages are DisTube guides with no section or topic of their own", async () => {
