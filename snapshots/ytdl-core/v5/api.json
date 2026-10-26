@@ -159,15 +159,7 @@
 						"summary": [
 							{
 								"kind": "text",
-								"text": "Mobile website. Accepts a cookie; needs "
-							},
-							{
-								"kind": "code",
-								"text": "`getPoToken`"
-							},
-							{
-								"kind": "text",
-								"text": "."
+								"text": "Mobile website. Accepts a cookie; needs a PO token."
 							}
 						]
 					},
@@ -224,15 +216,7 @@
 						"summary": [
 							{
 								"kind": "text",
-								"text": "YouTube Studio. Needs a cookie and "
-							},
-							{
-								"kind": "code",
-								"text": "`getPoToken`"
-							},
-							{
-								"kind": "text",
-								"text": "."
+								"text": "YouTube Studio. Needs a cookie and a PO token."
 							}
 						]
 					},
@@ -746,7 +730,7 @@
 						"summary": [
 							{
 								"kind": "text",
-								"text": "The video does not exist or was removed, or a channel live URL names no channel or no live stream."
+								"text": "The video does not exist or was removed, an ended live stream kept no recording, or a channel live URL names no\nchannel or no live stream."
 							}
 						]
 					},
@@ -1017,7 +1001,15 @@
 									},
 									{
 										"kind": "text",
-										"text": ". An unexpired info is used as is; "
+										"text": ". An unexpired info is used as is; otherwise the\nvideo is looked up again, with an explicit "
+									},
+									{
+										"kind": "code",
+										"text": "`format`"
+									},
+									{
+										"kind": "text",
+										"text": " until a client offers that same file. "
 									},
 									{
 										"kind": "code",
@@ -10031,7 +10023,15 @@
 						"summary": [
 							{
 								"kind": "text",
-								"text": "Mints PO tokens; clients that need one are skipped without it."
+								"text": "Mints PO tokens in place of the instance's own "
+							},
+							{
+								"kind": "code",
+								"text": "`createPoTokenProvider()`"
+							},
+							{
+								"kind": "text",
+								"text": ", started on its first mint."
 							}
 						]
 					},
@@ -10314,7 +10314,15 @@
 				"summary": [
 					{
 						"kind": "text",
-						"text": "Mints a PO token; plug in "
+						"text": "Mints a PO token. Without one, "
+					},
+					{
+						"kind": "code",
+						"text": "`Ytdl`"
+					},
+					{
+						"kind": "text",
+						"text": " mints through its own "
 					},
 					{
 						"kind": "code",
@@ -10322,7 +10330,7 @@
 					},
 					{
 						"kind": "text",
-						"text": " or your own minter."
+						"text": "."
 					}
 				]
 			},
@@ -10558,7 +10566,23 @@
 							},
 							{
 								"kind": "text",
-								"text": ", so a fresh list's URL replaces a stale one. A DRC variant\nis picked only when no original matches, and a dubbed audio track only when no original-language track does."
+								"text": ", so a fresh list's URL replaces a stale one, and one "
+							},
+							{
+								"kind": "code",
+								"text": "`formats`"
+							},
+							{
+								"kind": "text",
+								"text": " lacks\nthrows "
+							},
+							{
+								"kind": "code",
+								"text": "`NO_FORMAT`"
+							},
+							{
+								"kind": "text",
+								"text": ". A DRC variant is picked only when no original matches, and a dubbed audio track only when no\noriginal-language track does."
 							}
 						]
 					},
@@ -10625,7 +10649,23 @@
 						"summary": [
 							{
 								"kind": "text",
-								"text": "Starts a BotGuard worker thread and resolves once it can mint; rejects if BotGuard refuses the environment."
+								"text": "Starts a BotGuard worker thread and resolves once it can mint; rejects if BotGuard refuses the environment. A "
+							},
+							{
+								"kind": "code",
+								"text": "`Ytdl`"
+							},
+							{
+								"kind": "text",
+								"text": "\nwithout "
+							},
+							{
+								"kind": "code",
+								"text": "`getPoToken`"
+							},
+							{
+								"kind": "text",
+								"text": " starts its own; create one to share it across instances or to dispose it."
 							}
 						]
 					},
@@ -10899,15 +10939,7 @@
 	"readme": [
 		{
 			"kind": "text",
-			"text": "# @distube/ytdl-core\n\nYouTube video info and downloads for Node.js. A DisTube fork of "
-		},
-		{
-			"kind": "code",
-			"text": "`ytdl-core`"
-		},
-		{
-			"kind": "text",
-			"text": ".\n\n**[Documentation](https://distube.js.org/ytdl-core/)** · [Getting started](https://distube.js.org/ytdl-core/guides/getting-started/) · [API reference](https://distube.js.org/ytdl-core/api/readme/)\n\n<a href='https://ko-fi.com/skick' target='_blank'><img height='48' src='https://storage.ko-fi.com/cdn/kofi3.png' alt='Buy Me a Coffee at ko-fi.com' /></a>\n\n## Features\n\n- Video details, chapters, storyboards, related videos and every format\n- Caption tracks as WebVTT, JSON or XML text\n- Video and playlist search, playlists and channel uploads with every page, related videos and search suggestions\n- Node "
+			"text": "# @distube/ytdl-core\n\nYouTube video info and downloads for Node.js. A DisTube fork of [fent/node-ytdl-core](https://github.com/fent/node-ytdl-core).\n\n**[Documentation](https://distube.js.org/ytdl-core/)** · [Getting started](https://distube.js.org/ytdl-core/guides/getting-started/) · [API reference](https://distube.js.org/ytdl-core/api/readme/)\n\n<a href='https://ko-fi.com/skick' target='_blank'><img height='48' src='https://storage.ko-fi.com/cdn/kofi3.png' alt='Buy Me a Coffee at ko-fi.com' /></a>\n\n## Features\n\n- Video details, chapters, storyboards, related videos and every format\n- Caption tracks as WebVTT, JSON or XML text\n- Video and playlist search, playlists and channel uploads with every page, related videos and search suggestions\n- Node "
 		},
 		{
 			"kind": "code",
@@ -10923,7 +10955,7 @@
 		},
 		{
 			"kind": "text",
-			"text": "\n- Downloads that resume on their own when YouTube cuts a URL off\n- Live streams over HLS or DASH\n- SABR-only formats, which on some clients means everything above 360p\n- Signatures solved locally, no remote service\n- Age-restricted videos with a cookie, and a built-in PO token provider\n- Proxies through any "
+			"text": "\n- Downloads that resume on their own when YouTube cuts a URL off\n- Live streams over HLS or DASH\n- SABR-only formats, which on some clients means everything above 360p\n- Signatures solved locally, no remote service\n- Age-restricted videos with a cookie\n- PO tokens minted in a worker thread with no setup, for the clients that need one\n- Proxies through any "
 		},
 		{
 			"kind": "code",
@@ -10971,7 +11003,7 @@
 		},
 		{
 			"kind": "text",
-			"text": " for the offline gates.\n\n## License\n\nMIT. Originally [fent/node-ytdl-core](https://github.com/fent/node-ytdl-core) and its contributors.\n\nSABR streaming uses [googlevideo](https://github.com/LuanRT/googlevideo), MIT, as a dependency."
+			"text": " for the offline gates.\n\n## License\n\nMIT."
 		}
 	],
 	"symbolIdMap": {

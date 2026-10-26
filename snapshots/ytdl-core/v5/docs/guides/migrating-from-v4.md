@@ -5,7 +5,7 @@ sidebar:
   order: 14
 ---
 
-v5 is a rewrite with no compatibility layer. The module exports a `Ytdl` class instead of a callable `ytdl` function, and one instance holds the session YouTube gives it. Create it once and reuse it:
+v5 is a rewrite with no compatibility layer. The module exports a `Ytdl` class instead of a callable `ytdl` function, and one instance holds the session YouTube gives it. Create it once and reuse it. See [Getting started](../getting-started/#one-instance-per-app):
 
 ```ts
 import { Ytdl } from "@distube/ytdl-core";
@@ -31,7 +31,7 @@ The package is ESM-only and has no default export. `import ytdl from "@distube/y
 | `ytdl.filterFormats(formats, "audioonly")` | `formats.filter((format) => format.hasAudio && !format.hasVideo)`    |
 | `ytdl.getVideoID(input)`, `getURLVideoID`  | `parseVideoId(input)`, which returns `undefined` instead of throwing |
 | `ytdl.validateID(id)`, `validateURL(url)`  | `parseVideoId(input) !== undefined`                                  |
-| `ytdl.createAgent(cookies)`                | `new Ytdl({ cookie })` with the [cookie export](../cookies/) as text |
+| `ytdl.createAgent(cookies)`                | `new Ytdl({ cookie })` with the [cookie](../cookies/) header string  |
 | `ytdl.createProxyAgent({ uri }, cookies)`  | `new Ytdl({ fetch, cookie })` with a [proxied fetch](../proxies/)    |
 
 `ytdl.cache` and `ytdl.version` are gone. Every other 4.15.1 export is in the table. v5 exports `Ytdl`, `chooseFormat`, `parseVideoId`, `parsePlaylistId`, `Quality`, `Client`, `DEFAULT_CLIENTS`, `CaptionFormat`, `createPoTokenProvider`, `YtdlError` and `YtdlErrorCode`.
@@ -59,13 +59,20 @@ The package is ESM-only and has no default export. `import ytdl from "@distube/y
 
 The stream is a plain Node `Readable`. Its 4.x events become options or calls:
 
-```ts
-// 4.x
+```js
 ytdl(url)
   .on("info", (info, format) => {})
   .on("progress", (chunk, downloaded, total) => {});
+```
 
-// v5
+In v5, read the info first and pass the format and a progress callback:
+
+```ts
+import { Quality, Ytdl, chooseFormat } from "@distube/ytdl-core";
+
+declare const yt: Ytdl;
+declare const url: string;
+
 const info = await yt.getInfo(url);
 const format = chooseFormat(info.formats, { quality: Quality.HighestAudio });
 yt.download(info, { format, onProgress: ({ chunkBytes, downloaded, total }) => {} });
