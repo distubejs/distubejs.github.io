@@ -39,7 +39,7 @@ async function exists(path: string): Promise<boolean> {
 }
 
 describe("snapshot.ts", () => {
-  test("writes api.json for every exports types target, meta, index and docs", async () => {
+  test("writes api.json for one types target per exports subpath, meta, index and docs", async () => {
     expect((await snapshot("--docs", join(pkg, "docs"))).code).toBe(0);
     const dir = join(snapshots, "fixture", "v2");
     const api = JSON.parse(await readFile(join(dir, "api.json"), "utf8")) as {
@@ -54,6 +54,21 @@ describe("snapshot.ts", () => {
     });
     expect(await readFile(join(dir, "index.md"), "utf8")).toBe("# Fixture\n\nReadme body.\n");
     expect(await readFile(join(dir, "docs/guides/intro.md"), "utf8")).toContain("title: Intro");
+  });
+
+  test("a dual-format subpath yields one module, preferring import over require", async () => {
+    await cp(join(pkg, "dist/index.d.ts"), join(pkg, "dist/index.d.cts"));
+    await patchManifest({
+      exports: {
+        ".": { types: { require: "./dist/index.d.cts", default: "./dist/index.d.ts" }, default: "./dist/index.js" },
+        "./extra": { require: { types: "./dist/extra.d.ts" }, import: { types: "./dist/extra.d.ts" } },
+      },
+    });
+    expect((await snapshot()).code).toBe(0);
+    const api = JSON.parse(await readFile(join(snapshots, "fixture", "v2", "api.json"), "utf8")) as {
+      children: { name: string }[];
+    };
+    expect(api.children.map((m) => m.name).toSorted()).toEqual(["extra", "index"]);
   });
 
   test("a second run of the same major replaces the directory and keeps other majors", async () => {

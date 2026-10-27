@@ -13,13 +13,26 @@ interface Manifest {
 
 const typedocBin = join(dirname(fileURLToPath(import.meta.url)), "../node_modules/.bin/typedoc");
 
-function typesTargets(node: unknown, found: Set<string> = new Set()): Set<string> {
-  if (typeof node !== "object" || node === null) return found;
-  for (const [key, value] of Object.entries(node)) {
-    if (key === "types" && typeof value === "string") found.add(value);
-    else typesTargets(value, found);
+const conditionRank = (key: string): number =>
+  key === "types" ? 0 : key === "import" || key === "default" ? 1 : key === "require" ? 3 : 2;
+
+function typesTarget(node: unknown, underTypes = false): string | undefined {
+  if (typeof node === "string") return underTypes ? node : undefined;
+  if (typeof node !== "object" || node === null) return undefined;
+  const entries = Object.entries(node).toSorted(([a], [b]) => conditionRank(a) - conditionRank(b));
+  for (const [key, value] of entries) {
+    const found = typesTarget(value, underTypes || key === "types");
+    if (found) return found;
   }
-  return found;
+  return undefined;
+}
+
+function typesTargets(exports: unknown): string[] {
+  const subpaths =
+    typeof exports === "object" && exports !== null && Object.keys(exports).every((key) => key.startsWith("."))
+      ? Object.values(exports)
+      : [exports];
+  return subpaths.flatMap((subpath) => typesTarget(subpath) ?? []);
 }
 
 async function readManifest(file: string): Promise<Manifest> {
@@ -74,7 +87,7 @@ async function main(): Promise<void> {
   if (manifest.private) throw new Error(`${manifest.name} is private`);
   if (manifest.version.includes("-")) throw new Error(`${manifest.name}@${manifest.version} is a prerelease`);
 
-  const entryPoints = [...typesTargets(manifest.exports)].map((target) => resolve(packageDir, target));
+  const entryPoints = typesTargets(manifest.exports).map((target) => resolve(packageDir, target));
   if (entryPoints.length === 0) throw new Error(`${manifest.name} has no types targets in exports`);
 
   const docs = docsDir ? await markdownFiles(docsDir) : [];
