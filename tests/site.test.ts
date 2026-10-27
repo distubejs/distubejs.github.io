@@ -1,5 +1,5 @@
 import { afterAll, beforeAll, describe, expect, test } from "bun:test";
-import { access, mkdir, mkdtemp, readFile, rm } from "node:fs/promises";
+import { access, cp, mkdir, mkdtemp, readFile, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { stageSnapshots } from "../src/snapshots.ts";
@@ -14,27 +14,45 @@ async function exists(path: string): Promise<boolean> {
   );
 }
 
+interface Build {
+  code: number;
+  log: string;
+  dist: string;
+}
+
+async function build(snapshots: string): Promise<Build> {
+  // Astro moves build assets with rename(), so outDir must share the repository's filesystem.
+  const cache = join(root, "node_modules/.cache");
+  await mkdir(cache, { recursive: true });
+  const dist = await mkdtemp(join(cache, "site-test-"));
+  const proc = Bun.spawn([join(root, "node_modules/.bin/astro"), "build", "--outDir", dist], {
+    cwd: root,
+    env: { ...process.env, DOCS_SNAPSHOTS: snapshots },
+    stdout: "pipe",
+    stderr: "pipe",
+  });
+  const [code, out, err] = await Promise.all([
+    proc.exited,
+    new Response(proc.stdout).text(),
+    new Response(proc.stderr).text(),
+  ]);
+  return { code, log: out + err, dist };
+}
+
+async function snapshotsWith(copy: (from: string, to: string) => Promise<void>): Promise<string> {
+  const dir = await mkdtemp(join(tmpdir(), "site-snapshots-"));
+  await copy(fixtures, dir);
+  return dir;
+}
+
 describe("site built from fixture snapshots", () => {
   let dist = "";
   const read = (path: string) => readFile(join(dist, path), "utf8");
 
   beforeAll(async () => {
-    // Astro moves build assets with rename(), so outDir must share the repository's filesystem.
-    const cache = join(root, "node_modules/.cache");
-    await mkdir(cache, { recursive: true });
-    dist = await mkdtemp(join(cache, "site-test-"));
-    const proc = Bun.spawn([join(root, "node_modules/.bin/astro"), "build", "--outDir", dist], {
-      cwd: root,
-      env: { ...process.env, DOCS_SNAPSHOTS: fixtures },
-      stdout: "pipe",
-      stderr: "pipe",
-    });
-    const [code, out, err] = await Promise.all([
-      proc.exited,
-      new Response(proc.stdout).text(),
-      new Response(proc.stderr).text(),
-    ]);
-    if (code !== 0) throw new Error(`astro build exited ${code}\n${out}${err}`);
+    const result = await build(fixtures);
+    dist = result.dist;
+    if (result.code !== 0) throw new Error(`astro build exited ${result.code}\n${result.log}`);
   }, 300_000);
 
   afterAll(() => rm(dist, { recursive: true, force: true }));
@@ -118,6 +136,13 @@ describe("site built from fixture snapshots", () => {
     expect(page.indexOf('class="yt-picker')).toBeGreaterThan(ytdl);
   });
 
+  test("the landing page links only pages the site serves", async () => {
+    const page = await read("index.html");
+    const hrefs = [...page.matchAll(/href="(\/(?:distube|ytdl-core)\/[^"#]*)"/g)].map((m) => m[1] ?? "");
+    expect(hrefs.length).toBeGreaterThan(0);
+    for (const href of hrefs) expect(await exists(join(dist, href, "index.html")), href).toBe(true);
+  });
+
   test("the format picker marks the format chooseFormat picks for every quality and filter", async () => {
     const page = await read("index.html");
     const picks = [...page.matchAll(/data-picks="([^"]+)"/g)].flatMap((m) => m[1]?.split(" ") ?? []);
@@ -152,4 +177,36 @@ test("staging rejects a snapshot of a private package", async () => {
   } finally {
     await rm(work, { recursive: true, force: true });
   }
+});
+
+describe("landing page on other snapshot sets", () => {
+  const cleanup: string[] = [];
+  afterAll(() => Promise.all(cleanup.map((dir) => rm(dir, { recursive: true, force: true }))));
+
+  async function buildWith(copy: (from: string, to: string) => Promise<void>): Promise<Build> {
+    const snapshots = await snapshotsWith(copy);
+    const result = await build(snapshots);
+    cleanup.push(snapshots, result.dist);
+    return result;
+  }
+
+  test("a site with only ytdl-core snapshots has no DisTube hero or footer link", async () => {
+    const result = await buildWith((from, to) =>
+      cp(join(from, "ytdl-core"), join(to, "ytdl-core"), { recursive: true }),
+    );
+    expect(result.code).toBe(0);
+    const page = await readFile(join(result.dist, "index.html"), "utf8");
+    expect(page).not.toContain('href="/distube/');
+    expect(page).toContain('href="/ytdl-core/guides/getting-started/"');
+  }, 300_000);
+
+  test("a DisTube snapshot without the guides the hero names links to none of them", async () => {
+    const result = await buildWith((from, to) =>
+      cp(join(from, "distube/v6"), join(to, "distube/v6"), { recursive: true }),
+    );
+    expect(result.code).toBe(0);
+    const page = await readFile(join(result.dist, "index.html"), "utf8");
+    expect(page).toContain('href="/distube/"');
+    expect(page).not.toContain('href="/distube/get-started/quick-start/"');
+  }, 300_000);
 });

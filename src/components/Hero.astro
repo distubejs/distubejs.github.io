@@ -1,13 +1,22 @@
 ---
+import { servedPages } from "../served.ts";
 import FormatPicker from "./FormatPicker.astro";
 
+const pages = await servedPages();
+const hasDistube = pages.has("/distube/");
+const hasYtdl = pages.has("/ytdl-core/");
 const distube = [
-  { name: "Quick start", href: "/distube/guides/quick-start/", line: "Play a song in a voice channel with discord.js or Oceanic." },
+  { name: "Quick start", href: "/distube/get-started/quick-start/", line: "Play, skip and stop music with one discord.js file." },
   { name: "Plugins", href: "/distube/plugins/", line: "Official YouTube, SoundCloud, Spotify and Lavalink sources." },
   { name: "API reference", href: "/distube/api/readme/", line: "Every class, event and integration contract." },
-];
+].filter((item) => pages.has(item.href));
+const ytdlGuide = "/ytdl-core/guides/getting-started/";
+const ytdlApi = "/ytdl-core/api/readme/";
+const Heading = hasDistube ? "h2" : "h1";
+const ytdlHeading = hasDistube ? "ytdl-core" : "_top";
 ---
 
+{hasDistube && (
 <section class="yt-hero" aria-labelledby="_top">
   <div class="yt-hero-copy">
     <h1 id="_top" data-page-title>
@@ -36,19 +45,21 @@ const distube = [
     </ol>
   </div>
 </section>
+)}
 
-<section class="yt-hero" aria-labelledby="ytdl-core">
+{hasYtdl && (
+<section class="yt-hero" aria-labelledby={ytdlHeading}>
   <div class="yt-hero-copy">
-    <h2 id="ytdl-core">
+    <Heading id={ytdlHeading} data-page-title={hasDistube ? undefined : true}>
       <span class="yt-line"><span>YouTube downloads</span></span>
       <span class="yt-line"><span>for Node.js</span></span>
-    </h2>
+    </Heading>
     <p class="yt-hero-lead">
       Read a video's details and every format, then stream the one you want. Signatures are solved on your machine.
     </p>
     <div class="yt-hero-actions">
-      <a class="yt-button" href="/ytdl-core/guides/getting-started/">Download your first video</a>
-      <a class="yt-link" href="/ytdl-core/api/readme/">API reference</a>
+      {pages.has(ytdlGuide) && <a class="yt-button" href={ytdlGuide}>Download your first video</a>}
+      {pages.has(ytdlApi) && <a class="yt-link" href={ytdlApi}>API reference</a>}
     </div>
   </div>
 
@@ -56,6 +67,7 @@ const distube = [
     <FormatPicker />
   </div>
 </section>
+)}
 
 <style>
   .yt-hero {

@@ -1,12 +1,21 @@
+---
+import { servedPages } from "../served.ts";
+
+const pages = await servedPages();
+const links = [
+  { href: "/distube/", label: "DisTube" },
+  { href: "/distube/plugins/", label: "DisTube Plugins" },
+  { href: "/ytdl-core/", label: "ytdl-core" },
+].filter((link) => pages.has(link.href));
+---
+
 <footer class="yt-tiles not-content" aria-labelledby="yt-footer-title">
   <div class="yt-tile yt-tile-statement">
     <h2 id="yt-footer-title">DisTube and ytdl-core.</h2>
     <p>MIT licence. Built by Skick and contributors.</p>
   </div>
   <nav class="yt-tile yt-tile-nav" aria-label="Documentation">
-    <a href="/distube/">DisTube</a>
-    <a href="/distube/plugins/">DisTube Plugins</a>
-    <a href="/ytdl-core/">ytdl-core</a>
+    {links.map((link) => <a href={link.href}>{link.label}</a>)}
     <a href="https://www.npmjs.com/package/distube">npm</a>
   </nav>
   <div class="yt-tile yt-tile-runtime">
