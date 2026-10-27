@@ -3,17 +3,30 @@ import starlight from "@astrojs/starlight";
 import { defineConfig } from "astro/config";
 import starlightLlmsTxt from "starlight-llms-txt";
 import starlightSidebarTopics from "starlight-sidebar-topics";
+import { unresolvedLinks } from "./src/links.ts";
 import { isArchived, stageSnapshots } from "./src/snapshots.ts";
 
 const site = "https://distube.js.org";
-const docs = stageSnapshots(
-  process.env.DOCS_SNAPSHOTS ?? "snapshots",
-  new URL("./src/content/docs/", import.meta.url).pathname,
-);
+const contentDir = new URL("./src/content/docs/", import.meta.url).pathname;
+const docs = stageSnapshots(process.env.DOCS_SNAPSHOTS ?? "snapshots", contentDir);
+
+const linkCheck = {
+  name: "link-check",
+  hooks: {
+    "astro:build:done": ({ pages }) => {
+      const broken = unresolvedLinks(
+        contentDir,
+        pages.map((page) => page.pathname),
+      );
+      if (broken.length > 0) throw new Error(`unresolved relative links:\n${broken.join("\n")}`);
+    },
+  },
+};
 
 export default defineConfig({
   site,
   integrations: [
+    linkCheck,
     sitemap({ filter: (page) => !isArchived(new URL(page).pathname) }),
     starlight({
       title: "DisTube",

@@ -1,5 +1,5 @@
 import { afterAll, beforeAll, describe, expect, test } from "bun:test";
-import { access, cp, mkdir, mkdtemp, readFile, rm } from "node:fs/promises";
+import { access, cp, mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { stageSnapshots } from "../src/snapshots.ts";
@@ -179,7 +179,7 @@ test("staging rejects a snapshot of a private package", async () => {
   }
 });
 
-describe("landing page on other snapshot sets", () => {
+describe("landing page and link check on other snapshot sets", () => {
   const cleanup: string[] = [];
   afterAll(() => Promise.all(cleanup.map((dir) => rm(dir, { recursive: true, force: true }))));
 
@@ -208,5 +208,17 @@ describe("landing page on other snapshot sets", () => {
     const page = await readFile(join(result.dist, "index.html"), "utf8");
     expect(page).toContain('href="/distube/"');
     expect(page).not.toContain('href="/distube/get-started/quick-start/"');
+  }, 300_000);
+
+  test("a relative link to no page fails the build and names the page and target", async () => {
+    const result = await buildWith(async (from, to) => {
+      await cp(join(from, "distube"), join(to, "distube"), { recursive: true });
+      await writeFile(
+        join(to, "distube/v7/docs/plugins/youtube.md"),
+        "---\ntitle: YouTube\n---\n\n[start](../get-started/quick-start/)\n",
+      );
+    });
+    expect(result.code).not.toBe(0);
+    expect(result.log).toContain("/distube/plugins/youtube/ links ../get-started/quick-start/");
   }, 300_000);
 });
