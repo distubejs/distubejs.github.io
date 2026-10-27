@@ -82,13 +82,14 @@ describe("site built from fixture snapshots", () => {
     expect(await read("distube/guides/events.md")).toBe(body);
   });
 
-  test("the DisTube sidebar has Guides with plugins and adapters, then one API reference per package", async () => {
+  test("the DisTube sidebar lists docs sections in task order, then adapters, then API reference", async () => {
     const page = await read("distube/guides/events/index.html");
     const sidebar = page.slice(page.indexOf('<ul class="top-level'), page.indexOf("</sl-sidebar-state-persist>"));
     const labels = [
       ">Overview<",
       ">Guides<",
       ">Plugins<",
+      ">Extending<",
       ">Adapters<",
       ">@distube/discordjs<",
       ">API reference<",

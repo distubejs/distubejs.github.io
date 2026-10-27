@@ -132,14 +132,25 @@ function label(entry: string): string {
   return name.charAt(0).toUpperCase() + name.slice(1);
 }
 
-function guideItems(major: Major): SidebarItem[] {
-  return major.entries.map((entry) =>
-    entry === "guides"
-      ? { autogenerate: { directory: `${major.base}/guides` } }
-      : entry.endsWith(".md")
-        ? `${major.base}/${entry.replace(/\.md$/, "")}`
-        : { label: label(entry), items: [{ autogenerate: { directory: `${major.base}/${entry}` } }] },
-  );
+const directoryOrder = ["get-started", "guides", "recipes", "reference", "plugins", "extending"];
+
+function directoryRank(entry: string): number {
+  const index = directoryOrder.indexOf(entry);
+  return index === -1 ? directoryOrder.length : index;
+}
+
+function docItems(major: Major): SidebarItem[] {
+  const files = major.entries.filter((entry) => entry.endsWith(".md"));
+  const directories = major.entries
+    .filter((entry) => !entry.endsWith(".md"))
+    .toSorted((a, b) => directoryRank(a) - directoryRank(b));
+  return [
+    ...directories.map((entry) => ({
+      label: label(entry),
+      items: [{ autogenerate: { directory: `${major.base}/${entry}` } }],
+    })),
+    ...files.map((entry) => `${major.base}/${entry.replace(/\.md$/, "")}`),
+  ];
 }
 
 interface Staged {
@@ -148,21 +159,20 @@ interface Staged {
 }
 
 function productItems(product: Product, [main, ...packages]: [Staged, ...Staged[]]): SidebarItem[] {
-  const guides = [
-    ...guideItems(main.current),
-    ...(packages.length > 0
+  const adapters =
+    packages.length > 0
       ? [
           {
             label: product.packagesLabel,
             items: packages.map(({ current }) => ({ label: current.meta.name, link: `/${current.base}/` })),
           },
         ]
-      : []),
-  ];
+      : [];
   const apis = [main, ...packages].flatMap(({ current }) => (current.api ? [current.api] : []));
   return [
     { label: "Overview", link: `/${main.current.base}/` },
-    ...(guides.length > 0 ? [{ label: "Guides", items: guides }] : []),
+    ...docItems(main.current),
+    ...adapters,
     ...(apis.length > 1 ? [{ label: "API reference", collapsed: true, items: apis }] : apis),
     ...[main, ...packages].flatMap(({ archived }) =>
       archived.map((major) => ({
