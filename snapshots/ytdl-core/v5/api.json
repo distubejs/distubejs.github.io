@@ -10371,15 +10371,15 @@
 						"summary": [
 							{
 								"kind": "text",
-								"text": "InnerTube "
+								"text": "The language of "
 							},
 							{
 								"kind": "code",
-								"text": "`hl`"
+								"text": "`getSuggestions`"
 							},
 							{
 								"kind": "text",
-								"text": " for titles, search, related videos and suggestions. Player answers are always English, so\nplayability is classified the same in every language and caption track names come back in English."
+								"text": " completions. Every other answer is English, so view, subscriber and like counts\nand playability parse the same in every language; titles, descriptions, relative times and caption track names\ncome back in English."
 							}
 						],
 						"blockTags": [
