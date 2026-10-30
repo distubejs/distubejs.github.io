@@ -132,7 +132,7 @@ function label(entry: string): string {
   return name.charAt(0).toUpperCase() + name.slice(1);
 }
 
-const directoryOrder = ["get-started", "guides", "recipes", "reference", "plugins", "extending"];
+const directoryOrder = ["get-started", "guides", "plugins", "popular-topics", "reference", "extending"];
 
 function directoryRank(entry: string): number {
   const index = directoryOrder.indexOf(entry);

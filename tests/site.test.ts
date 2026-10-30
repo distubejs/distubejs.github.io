@@ -107,6 +107,7 @@ describe("site built from fixture snapshots", () => {
       ">Overview<",
       ">Guides<",
       ">Plugins<",
+      ">Popular topics<",
       ">Extending<",
       ">Adapters<",
       ">@distube/discordjs<",
