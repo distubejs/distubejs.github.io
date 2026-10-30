@@ -12,7 +12,8 @@ v5 had separate direct-link and file plugins. In v6 it is one small plugin you k
 This recipe makes the bot fetch any HTTPS URL a member types that ends in an audio extension, and the built-in
 engine follows redirects to any HTTP or HTTPS host. A member can link a public `.mp3` that redirects to
 `http://127.0.0.1:8080/` or another address on the bot's network, and the bot sends that request. Run it only
-where members are trusted, or check `url.hostname` against hosts you allow before `resolve` returns a Song.
+where members are trusted. Checking `url.hostname` in `resolve` against hosts you allow covers only the link the
+member typed, not the redirects the engine follows from it.
 :::
 
 ## Write the plugin
@@ -45,7 +46,7 @@ export const directLinks: Plugin = {
     const isAttachment = url.hostname === "cdn.discordapp.com" && /^\/(?:ephemeral-)?attachments\//u.test(url.pathname);
     if (url.protocol !== "https:" || !(isAttachment || audioExtension.test(url.pathname))) return undefined;
     const id = url.origin + url.pathname;
-    const song = new Song({ source: "direct-links", id, name: fileName(url), url: id });
+    const song = new Song({ source: "direct-links", id, name: fileName(url), url: id, ageRestricted: false });
     signedInputs.set(song, input);
     return song;
   },
@@ -61,7 +62,8 @@ file on Discord's CDN. Anything else returns `undefined`, and core asks the next
 option from `/ephemeral-attachments/`, so the check accepts both attachment paths.
 
 The file's name becomes the track title. The Song has no duration, because the plugin does not download the file to
-find out.
+find out. `ageRestricted: false` tells core the answer is already known, so a Song passed to `play` again, such as one
+from `queue.history`, plays as it is instead of going back through `resolve` with its unsigned `url`.
 
 ### Why the signed link stays in a map
 
