@@ -1,0 +1,5 @@
+{
+  "name": "distube",
+  "version": "6.0.0",
+  "description": "Minimal queue and playback orchestration for Discord audio"
+}
