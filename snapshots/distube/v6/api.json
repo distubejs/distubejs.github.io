@@ -4356,7 +4356,7 @@
 											},
 											{
 												"type": "reference",
-												"target": 556,
+												"target": 560,
 												"typeArguments": [
 													{
 														"type": "intrinsic",
@@ -7360,7 +7360,7 @@
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"target": 626,
+												"target": 630,
 												"name": "RelatedOptions",
 												"package": "distube"
 											}
@@ -7457,7 +7457,7 @@
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"target": 630,
+												"target": 634,
 												"name": "ResolveOptions",
 												"package": "distube"
 											}
@@ -7570,7 +7570,7 @@
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"target": 633,
+												"target": 637,
 												"name": "SearchOptions",
 												"package": "distube"
 											}
@@ -9475,31 +9475,31 @@
 						"types": [
 							{
 								"type": "reference",
-								"target": 660,
+								"target": 664,
 								"name": "UrlPlaybackResource",
 								"package": "distube"
 							},
 							{
 								"type": "reference",
-								"target": 551,
+								"target": 555,
 								"name": "FilePlaybackResource",
 								"package": "distube"
 							},
 							{
 								"type": "reference",
-								"target": 638,
+								"target": 642,
 								"name": "StreamPlaybackResource",
 								"package": "distube"
 							},
 							{
 								"type": "reference",
-								"target": 615,
+								"target": 619,
 								"name": "ReaderPlaybackResource",
 								"package": "distube"
 							},
 							{
 								"type": "reference",
-								"target": 643,
+								"target": 647,
 								"name": "TimedPlaybackResource",
 								"package": "distube"
 							},
@@ -11166,7 +11166,7 @@
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"target": 543,
+												"target": 547,
 												"name": "EngineSettings",
 												"package": "distube"
 											}
@@ -11203,7 +11203,7 @@
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"target": 717,
+												"target": 721,
 												"name": "VoiceTarget",
 												"package": "distube"
 											}
@@ -11216,7 +11216,7 @@
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"target": 712,
+												"target": 716,
 												"name": "VoiceSessionOptions",
 												"package": "distube"
 											}
@@ -11232,7 +11232,7 @@
 										"typeArguments": [
 											{
 												"type": "reference",
-												"target": 670,
+												"target": 674,
 												"name": "VoiceSession",
 												"package": "distube"
 											}
@@ -11291,7 +11291,7 @@
 									],
 									"type": {
 										"type": "reference",
-										"target": 717,
+										"target": 721,
 										"name": "VoiceTarget",
 										"package": "distube"
 									}
@@ -11502,41 +11502,41 @@
 							}
 						},
 						{
-							"id": 530,
+							"id": 534,
 							"name": "createPlayer",
 							"variant": "declaration",
 							"kind": 2048,
 							"flags": {},
 							"signatures": [
 								{
-									"id": 531,
+									"id": 535,
 									"name": "createPlayer",
 									"variant": "signature",
 									"kind": 4096,
 									"flags": {},
 									"parameters": [
 										{
-											"id": 532,
+											"id": 536,
 											"name": "session",
 											"variant": "param",
 											"kind": 32768,
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"target": 670,
+												"target": 674,
 												"name": "VoiceSession",
 												"package": "distube"
 											}
 										},
 										{
-											"id": 533,
+											"id": 537,
 											"name": "options",
 											"variant": "param",
 											"kind": 32768,
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"target": 608,
+												"target": 612,
 												"name": "PlayerOptions",
 												"package": "distube"
 											}
@@ -11552,7 +11552,7 @@
 										"typeArguments": [
 											{
 												"type": "reference",
-												"target": 579,
+												"target": 583,
 												"name": "Player",
 												"package": "distube"
 											}
@@ -11564,7 +11564,87 @@
 							]
 						},
 						{
-							"id": 534,
+							"id": 530,
+							"name": "createVoiceSession",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {
+								"isOptional": true
+							},
+							"signatures": [
+								{
+									"id": 531,
+									"name": "createVoiceSession",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Opens the voice through the engine's own connection, which then sends the join and receives the platform's\ncredentials as they arrive. When present, core calls it instead of "
+											},
+											{
+												"kind": "code",
+												"text": "`Adapter.createVoiceSession`"
+											},
+											{
+												"kind": "text",
+												"text": "."
+											}
+										]
+									},
+									"parameters": [
+										{
+											"id": 532,
+											"name": "target",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"target": 721,
+												"name": "VoiceTarget",
+												"package": "distube"
+											}
+										},
+										{
+											"id": 533,
+											"name": "options",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"target": 716,
+												"name": "VoiceSessionOptions",
+												"package": "distube"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"target": {
+											"packageName": "typescript",
+											"packagePath": "lib/lib.es5.d.ts",
+											"qualifiedName": "Promise"
+										},
+										"typeArguments": [
+											{
+												"type": "reference",
+												"target": 674,
+												"name": "VoiceSession",
+												"package": "distube"
+											}
+										],
+										"name": "Promise",
+										"package": "typescript"
+									}
+								}
+							]
+						},
+						{
+							"id": 538,
 							"name": "playbackRate",
 							"variant": "declaration",
 							"kind": 2048,
@@ -11573,7 +11653,7 @@
 							},
 							"signatures": [
 								{
-									"id": 535,
+									"id": 539,
 									"name": "playbackRate",
 									"variant": "signature",
 									"kind": 4096,
@@ -11588,7 +11668,7 @@
 									},
 									"parameters": [
 										{
-											"id": 536,
+											"id": 540,
 											"name": "entries",
 											"variant": "param",
 											"kind": 32768,
@@ -11616,7 +11696,7 @@
 							]
 						},
 						{
-							"id": 537,
+							"id": 541,
 							"name": "prepare",
 							"variant": "declaration",
 							"kind": 2048,
@@ -11625,7 +11705,7 @@
 							},
 							"signatures": [
 								{
-									"id": 538,
+									"id": 542,
 									"name": "prepare",
 									"variant": "signature",
 									"kind": 4096,
@@ -11648,7 +11728,7 @@
 									},
 									"parameters": [
 										{
-											"id": 539,
+											"id": 543,
 											"name": "song",
 											"variant": "param",
 											"kind": 32768,
@@ -11661,7 +11741,7 @@
 											}
 										},
 										{
-											"id": 540,
+											"id": 544,
 											"name": "options",
 											"variant": "param",
 											"kind": 32768,
@@ -11669,14 +11749,14 @@
 											"type": {
 												"type": "reflection",
 												"declaration": {
-													"id": 541,
+													"id": 545,
 													"name": "__type",
 													"variant": "declaration",
 													"kind": 65536,
 													"flags": {},
 													"children": [
 														{
-															"id": 542,
+															"id": 546,
 															"name": "signal",
 															"variant": "declaration",
 															"kind": 1024,
@@ -11699,7 +11779,7 @@
 														{
 															"title": "Properties",
 															"children": [
-																542
+																546
 															]
 														}
 													]
@@ -11739,15 +11819,16 @@
 						{
 							"title": "Methods",
 							"children": [
-								530,
 								534,
-								537
+								530,
+								538,
+								541
 							]
 						}
 					]
 				},
 				{
-					"id": 543,
+					"id": 547,
 					"name": "EngineSettings",
 					"variant": "declaration",
 					"kind": 256,
@@ -11770,7 +11851,7 @@
 					},
 					"children": [
 						{
-							"id": 546,
+							"id": 550,
 							"name": "bufferMs",
 							"variant": "declaration",
 							"kind": 1024,
@@ -11791,7 +11872,7 @@
 							}
 						},
 						{
-							"id": 544,
+							"id": 548,
 							"name": "filters",
 							"variant": "declaration",
 							"kind": 1024,
@@ -11821,7 +11902,7 @@
 											},
 											{
 												"type": "reference",
-												"target": 556,
+												"target": 560,
 												"typeArguments": [
 													{
 														"type": "intrinsic",
@@ -11841,7 +11922,7 @@
 							}
 						},
 						{
-							"id": 545,
+							"id": 549,
 							"name": "opusComplexity",
 							"variant": "declaration",
 							"kind": 1024,
@@ -11862,7 +11943,7 @@
 							}
 						},
 						{
-							"id": 547,
+							"id": 551,
 							"name": "report",
 							"variant": "declaration",
 							"kind": 1024,
@@ -11888,21 +11969,21 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 548,
+									"id": 552,
 									"name": "__type",
 									"variant": "declaration",
 									"kind": 65536,
 									"flags": {},
 									"signatures": [
 										{
-											"id": 549,
+											"id": 553,
 											"name": "__type",
 											"variant": "signature",
 											"kind": 4096,
 											"flags": {},
 											"parameters": [
 												{
-													"id": 550,
+													"id": 554,
 													"name": "diagnostic",
 													"variant": "param",
 													"kind": 32768,
@@ -11929,23 +12010,23 @@
 						{
 							"title": "Properties",
 							"children": [
-								546,
-								544,
-								545,
-								547
+								550,
+								548,
+								549,
+								551
 							]
 						}
 					]
 				},
 				{
-					"id": 551,
+					"id": 555,
 					"name": "FilePlaybackResource",
 					"variant": "declaration",
 					"kind": 256,
 					"flags": {},
 					"children": [
 						{
-							"id": 552,
+							"id": 556,
 							"name": "kind",
 							"variant": "declaration",
 							"kind": 1024,
@@ -11958,7 +12039,7 @@
 							}
 						},
 						{
-							"id": 553,
+							"id": 557,
 							"name": "path",
 							"variant": "declaration",
 							"kind": 1024,
@@ -11971,7 +12052,7 @@
 							}
 						},
 						{
-							"id": 554,
+							"id": 558,
 							"name": "dispose",
 							"variant": "declaration",
 							"kind": 2048,
@@ -11980,7 +12061,7 @@
 							},
 							"signatures": [
 								{
-									"id": 555,
+									"id": 559,
 									"name": "dispose",
 									"variant": "signature",
 									"kind": 4096,
@@ -12018,20 +12099,20 @@
 						{
 							"title": "Properties",
 							"children": [
-								552,
-								553
+								556,
+								557
 							]
 						},
 						{
 							"title": "Methods",
 							"children": [
-								554
+								558
 							]
 						}
 					]
 				},
 				{
-					"id": 556,
+					"id": 560,
 					"name": "FilterDefinition",
 					"variant": "declaration",
 					"kind": 256,
@@ -12078,7 +12159,7 @@
 					},
 					"children": [
 						{
-							"id": 562,
+							"id": 566,
 							"name": "default",
 							"variant": "declaration",
 							"kind": 1024,
@@ -12092,7 +12173,7 @@
 							}
 						},
 						{
-							"id": 565,
+							"id": 569,
 							"name": "label",
 							"variant": "declaration",
 							"kind": 1024,
@@ -12130,7 +12211,7 @@
 							}
 						},
 						{
-							"id": 564,
+							"id": 568,
 							"name": "max",
 							"variant": "declaration",
 							"kind": 1024,
@@ -12144,7 +12225,7 @@
 							}
 						},
 						{
-							"id": 563,
+							"id": 567,
 							"name": "min",
 							"variant": "declaration",
 							"kind": 1024,
@@ -12158,7 +12239,7 @@
 							}
 						},
 						{
-							"id": 558,
+							"id": 562,
 							"name": "render",
 							"variant": "declaration",
 							"kind": 1024,
@@ -12168,21 +12249,21 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 559,
+									"id": 563,
 									"name": "__type",
 									"variant": "declaration",
 									"kind": 65536,
 									"flags": {},
 									"signatures": [
 										{
-											"id": 560,
+											"id": 564,
 											"name": "__type",
 											"variant": "signature",
 											"kind": 4096,
 											"flags": {},
 											"parameters": [
 												{
-													"id": 561,
+													"id": 565,
 													"name": "value",
 													"variant": "param",
 													"kind": 32768,
@@ -12197,7 +12278,7 @@
 											],
 											"type": {
 												"type": "reference",
-												"target": 557,
+												"target": 561,
 												"name": "Payload",
 												"package": "distube",
 												"qualifiedName": "FilterDefinition.Payload",
@@ -12209,7 +12290,7 @@
 							}
 						},
 						{
-							"id": 566,
+							"id": 570,
 							"name": "tempo",
 							"variant": "declaration",
 							"kind": 1024,
@@ -12235,21 +12316,21 @@
 									{
 										"type": "reflection",
 										"declaration": {
-											"id": 567,
+											"id": 571,
 											"name": "__type",
 											"variant": "declaration",
 											"kind": 65536,
 											"flags": {},
 											"signatures": [
 												{
-													"id": 568,
+													"id": 572,
 													"name": "__type",
 													"variant": "signature",
 													"kind": 4096,
 													"flags": {},
 													"parameters": [
 														{
-															"id": 569,
+															"id": 573,
 															"name": "value",
 															"variant": "param",
 															"kind": 32768,
@@ -12278,18 +12359,18 @@
 						{
 							"title": "Properties",
 							"children": [
+								566,
+								569,
+								568,
+								567,
 								562,
-								565,
-								564,
-								563,
-								558,
-								566
+								570
 							]
 						}
 					],
 					"typeParameters": [
 						{
-							"id": 557,
+							"id": 561,
 							"name": "Payload",
 							"variant": "typeParam",
 							"kind": 131072,
@@ -12302,7 +12383,7 @@
 					]
 				},
 				{
-					"id": 574,
+					"id": 578,
 					"name": "JoinOptions",
 					"variant": "declaration",
 					"kind": 256,
@@ -12333,7 +12414,7 @@
 					},
 					"children": [
 						{
-							"id": 575,
+							"id": 579,
 							"name": "selfDeaf",
 							"variant": "declaration",
 							"kind": 1024,
@@ -12347,7 +12428,7 @@
 							}
 						},
 						{
-							"id": 576,
+							"id": 580,
 							"name": "selfMute",
 							"variant": "declaration",
 							"kind": 1024,
@@ -12365,14 +12446,14 @@
 						{
 							"title": "Properties",
 							"children": [
-								575,
-								576
+								579,
+								580
 							]
 						}
 					]
 				},
 				{
-					"id": 579,
+					"id": 583,
 					"name": "Player",
 					"variant": "declaration",
 					"kind": 256,
@@ -12403,7 +12484,7 @@
 					},
 					"children": [
 						{
-							"id": 581,
+							"id": 585,
 							"name": "ping",
 							"variant": "declaration",
 							"kind": 1024,
@@ -12433,7 +12514,7 @@
 							}
 						},
 						{
-							"id": 580,
+							"id": 584,
 							"name": "position",
 							"variant": "declaration",
 							"kind": 1024,
@@ -12462,14 +12543,14 @@
 							}
 						},
 						{
-							"id": 588,
+							"id": 592,
 							"name": "pause",
 							"variant": "declaration",
 							"kind": 2048,
 							"flags": {},
 							"signatures": [
 								{
-									"id": 589,
+									"id": 593,
 									"name": "pause",
 									"variant": "signature",
 									"kind": 4096,
@@ -12494,14 +12575,14 @@
 							]
 						},
 						{
-							"id": 582,
+							"id": 586,
 							"name": "play",
 							"variant": "declaration",
 							"kind": 2048,
 							"flags": {},
 							"signatures": [
 								{
-									"id": 583,
+									"id": 587,
 									"name": "play",
 									"variant": "signature",
 									"kind": 4096,
@@ -12532,7 +12613,7 @@
 									},
 									"parameters": [
 										{
-											"id": 584,
+											"id": 588,
 											"name": "resource",
 											"variant": "param",
 											"kind": 32768,
@@ -12545,14 +12626,14 @@
 											}
 										},
 										{
-											"id": 585,
+											"id": 589,
 											"name": "options",
 											"variant": "param",
 											"kind": 32768,
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"target": 655,
+												"target": 659,
 												"name": "TrackOptions",
 												"package": "distube"
 											}
@@ -12577,14 +12658,14 @@
 													{
 														"type": "reflection",
 														"declaration": {
-															"id": 586,
+															"id": 590,
 															"name": "__type",
 															"variant": "declaration",
 															"kind": 65536,
 															"flags": {},
 															"children": [
 																{
-																	"id": 587,
+																	"id": 591,
 																	"name": "reason",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -12612,7 +12693,7 @@
 																{
 																	"title": "Properties",
 																	"children": [
-																		587
+																		591
 																	]
 																}
 															]
@@ -12630,14 +12711,14 @@
 							]
 						},
 						{
-							"id": 606,
+							"id": 610,
 							"name": "release",
 							"variant": "declaration",
 							"kind": 2048,
 							"flags": {},
 							"signatures": [
 								{
-									"id": 607,
+									"id": 611,
 									"name": "release",
 									"variant": "signature",
 									"kind": 4096,
@@ -12686,14 +12767,14 @@
 							]
 						},
 						{
-							"id": 590,
+							"id": 594,
 							"name": "resume",
 							"variant": "declaration",
 							"kind": 2048,
 							"flags": {},
 							"signatures": [
 								{
-									"id": 591,
+									"id": 595,
 									"name": "resume",
 									"variant": "signature",
 									"kind": 4096,
@@ -12718,21 +12799,21 @@
 							]
 						},
 						{
-							"id": 594,
+							"id": 598,
 							"name": "seek",
 							"variant": "declaration",
 							"kind": 2048,
 							"flags": {},
 							"signatures": [
 								{
-									"id": 595,
+									"id": 599,
 									"name": "seek",
 									"variant": "signature",
 									"kind": 4096,
 									"flags": {},
 									"parameters": [
 										{
-											"id": 596,
+											"id": 600,
 											"name": "seconds",
 											"variant": "param",
 											"kind": 32768,
@@ -12763,14 +12844,14 @@
 							]
 						},
 						{
-							"id": 600,
+							"id": 604,
 							"name": "setFilters",
 							"variant": "declaration",
 							"kind": 2048,
 							"flags": {},
 							"signatures": [
 								{
-									"id": 601,
+									"id": 605,
 									"name": "setFilters",
 									"variant": "signature",
 									"kind": 4096,
@@ -12785,7 +12866,7 @@
 									},
 									"parameters": [
 										{
-											"id": 602,
+											"id": 606,
 											"name": "entries",
 											"variant": "param",
 											"kind": 32768,
@@ -12825,14 +12906,14 @@
 							]
 						},
 						{
-							"id": 597,
+							"id": 601,
 							"name": "setVolume",
 							"variant": "declaration",
 							"kind": 2048,
 							"flags": {},
 							"signatures": [
 								{
-									"id": 598,
+									"id": 602,
 									"name": "setVolume",
 									"variant": "signature",
 									"kind": 4096,
@@ -12847,7 +12928,7 @@
 									},
 									"parameters": [
 										{
-											"id": 599,
+											"id": 603,
 											"name": "percent",
 											"variant": "param",
 											"kind": 32768,
@@ -12878,14 +12959,14 @@
 							]
 						},
 						{
-							"id": 592,
+							"id": 596,
 							"name": "stopTrack",
 							"variant": "declaration",
 							"kind": 2048,
 							"flags": {},
 							"signatures": [
 								{
-									"id": 593,
+									"id": 597,
 									"name": "stopTrack",
 									"variant": "signature",
 									"kind": 4096,
@@ -12926,7 +13007,7 @@
 							]
 						},
 						{
-							"id": 603,
+							"id": 607,
 							"name": "updateVoiceGateway",
 							"variant": "declaration",
 							"kind": 2048,
@@ -12935,21 +13016,21 @@
 							},
 							"signatures": [
 								{
-									"id": 604,
+									"id": 608,
 									"name": "updateVoiceGateway",
 									"variant": "signature",
 									"kind": 4096,
 									"flags": {},
 									"parameters": [
 										{
-											"id": 605,
+											"id": 609,
 											"name": "gateway",
 											"variant": "param",
 											"kind": 32768,
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"target": 665,
+												"target": 669,
 												"name": "VoiceGatewayData",
 												"package": "distube"
 											}
@@ -12979,35 +13060,35 @@
 						{
 							"title": "Properties",
 							"children": [
-								581,
-								580
+								585,
+								584
 							]
 						},
 						{
 							"title": "Methods",
 							"children": [
-								588,
-								582,
-								606,
-								590,
-								594,
-								600,
-								597,
 								592,
-								603
+								586,
+								610,
+								594,
+								598,
+								604,
+								601,
+								596,
+								607
 							]
 						}
 					]
 				},
 				{
-					"id": 608,
+					"id": 612,
 					"name": "PlayerOptions",
 					"variant": "declaration",
 					"kind": 256,
 					"flags": {},
 					"children": [
 						{
-							"id": 609,
+							"id": 613,
 							"name": "onClosed",
 							"variant": "declaration",
 							"kind": 1024,
@@ -13057,21 +13138,21 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 610,
+									"id": 614,
 									"name": "__type",
 									"variant": "declaration",
 									"kind": 65536,
 									"flags": {},
 									"signatures": [
 										{
-											"id": 611,
+											"id": 615,
 											"name": "__type",
 											"variant": "signature",
 											"kind": 4096,
 											"flags": {},
 											"parameters": [
 												{
-													"id": 612,
+													"id": 616,
 													"name": "error",
 													"variant": "param",
 													"kind": 32768,
@@ -13102,13 +13183,13 @@
 						{
 							"title": "Properties",
 							"children": [
-								609
+								613
 							]
 						}
 					]
 				},
 				{
-					"id": 615,
+					"id": 619,
 					"name": "ReaderPlaybackResource",
 					"variant": "declaration",
 					"kind": 256,
@@ -13123,7 +13204,7 @@
 					},
 					"children": [
 						{
-							"id": 618,
+							"id": 622,
 							"name": "container",
 							"variant": "declaration",
 							"kind": 1024,
@@ -13154,7 +13235,7 @@
 							}
 						},
 						{
-							"id": 616,
+							"id": 620,
 							"name": "kind",
 							"variant": "declaration",
 							"kind": 1024,
@@ -13167,7 +13248,7 @@
 							}
 						},
 						{
-							"id": 617,
+							"id": 621,
 							"name": "size",
 							"variant": "declaration",
 							"kind": 1024,
@@ -13180,7 +13261,7 @@
 							}
 						},
 						{
-							"id": 624,
+							"id": 628,
 							"name": "dispose",
 							"variant": "declaration",
 							"kind": 2048,
@@ -13189,7 +13270,7 @@
 							},
 							"signatures": [
 								{
-									"id": 625,
+									"id": 629,
 									"name": "dispose",
 									"variant": "signature",
 									"kind": 4096,
@@ -13223,14 +13304,14 @@
 							]
 						},
 						{
-							"id": 619,
+							"id": 623,
 							"name": "read",
 							"variant": "declaration",
 							"kind": 2048,
 							"flags": {},
 							"signatures": [
 								{
-									"id": 620,
+									"id": 624,
 									"name": "read",
 									"variant": "signature",
 									"kind": 4096,
@@ -13269,7 +13350,7 @@
 									},
 									"parameters": [
 										{
-											"id": 621,
+											"id": 625,
 											"name": "start",
 											"variant": "param",
 											"kind": 32768,
@@ -13280,7 +13361,7 @@
 											}
 										},
 										{
-											"id": 622,
+											"id": 626,
 											"name": "end",
 											"variant": "param",
 											"kind": 32768,
@@ -13291,7 +13372,7 @@
 											}
 										},
 										{
-											"id": 623,
+											"id": 627,
 											"name": "signal",
 											"variant": "param",
 											"kind": 32768,
@@ -13325,29 +13406,29 @@
 						{
 							"title": "Properties",
 							"children": [
-								618,
-								616,
-								617
+								622,
+								620,
+								621
 							]
 						},
 						{
 							"title": "Methods",
 							"children": [
-								624,
-								619
+								628,
+								623
 							]
 						}
 					]
 				},
 				{
-					"id": 626,
+					"id": 630,
 					"name": "RelatedOptions",
 					"variant": "declaration",
 					"kind": 256,
 					"flags": {},
 					"children": [
 						{
-							"id": 629,
+							"id": 633,
 							"name": "allowAgeRestricted",
 							"variant": "declaration",
 							"kind": 1024,
@@ -13381,7 +13462,7 @@
 							}
 						},
 						{
-							"id": 628,
+							"id": 632,
 							"name": "exclude",
 							"variant": "declaration",
 							"kind": 1024,
@@ -13417,65 +13498,6 @@
 							}
 						},
 						{
-							"id": 627,
-							"name": "signal",
-							"variant": "declaration",
-							"kind": 1024,
-							"flags": {
-								"isReadonly": true
-							},
-							"type": {
-								"type": "reference",
-								"target": {
-									"packageName": "typescript",
-									"packagePath": "lib/lib.dom.d.ts",
-									"qualifiedName": "AbortSignal"
-								},
-								"name": "AbortSignal",
-								"package": "typescript"
-							}
-						}
-					],
-					"groups": [
-						{
-							"title": "Properties",
-							"children": [
-								629,
-								628,
-								627
-							]
-						}
-					]
-				},
-				{
-					"id": 630,
-					"name": "ResolveOptions",
-					"variant": "declaration",
-					"kind": 256,
-					"flags": {},
-					"children": [
-						{
-							"id": 632,
-							"name": "maxPlaylistSongs",
-							"variant": "declaration",
-							"kind": 1024,
-							"flags": {
-								"isReadonly": true
-							},
-							"comment": {
-								"summary": [
-									{
-										"kind": "text",
-										"text": "Return at most this many Songs in a Playlist and stop requesting provider pages once reached."
-									}
-								]
-							},
-							"type": {
-								"type": "intrinsic",
-								"name": "number"
-							}
-						},
-						{
 							"id": 631,
 							"name": "signal",
 							"variant": "declaration",
@@ -13499,6 +13521,7 @@
 						{
 							"title": "Properties",
 							"children": [
+								633,
 								632,
 								631
 							]
@@ -13506,14 +13529,72 @@
 					]
 				},
 				{
-					"id": 633,
+					"id": 634,
+					"name": "ResolveOptions",
+					"variant": "declaration",
+					"kind": 256,
+					"flags": {},
+					"children": [
+						{
+							"id": 636,
+							"name": "maxPlaylistSongs",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {
+								"isReadonly": true
+							},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Return at most this many Songs in a Playlist and stop requesting provider pages once reached."
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 635,
+							"name": "signal",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {
+								"isReadonly": true
+							},
+							"type": {
+								"type": "reference",
+								"target": {
+									"packageName": "typescript",
+									"packagePath": "lib/lib.dom.d.ts",
+									"qualifiedName": "AbortSignal"
+								},
+								"name": "AbortSignal",
+								"package": "typescript"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"children": [
+								636,
+								635
+							]
+						}
+					]
+				},
+				{
+					"id": 637,
 					"name": "SearchOptions",
 					"variant": "declaration",
 					"kind": 256,
 					"flags": {},
 					"children": [
 						{
-							"id": 637,
+							"id": 641,
 							"name": "allowAgeRestricted",
 							"variant": "declaration",
 							"kind": 1024,
@@ -13555,7 +13636,7 @@
 							}
 						},
 						{
-							"id": 635,
+							"id": 639,
 							"name": "limit",
 							"variant": "declaration",
 							"kind": 1024,
@@ -13576,7 +13657,7 @@
 							}
 						},
 						{
-							"id": 636,
+							"id": 640,
 							"name": "offset",
 							"variant": "declaration",
 							"kind": 1024,
@@ -13597,7 +13678,7 @@
 							}
 						},
 						{
-							"id": 634,
+							"id": 638,
 							"name": "signal",
 							"variant": "declaration",
 							"kind": 1024,
@@ -13620,23 +13701,23 @@
 						{
 							"title": "Properties",
 							"children": [
-								637,
-								635,
-								636,
-								634
+								641,
+								639,
+								640,
+								638
 							]
 						}
 					]
 				},
 				{
-					"id": 638,
+					"id": 642,
 					"name": "StreamPlaybackResource",
 					"variant": "declaration",
 					"kind": 256,
 					"flags": {},
 					"children": [
 						{
-							"id": 639,
+							"id": 643,
 							"name": "kind",
 							"variant": "declaration",
 							"kind": 1024,
@@ -13649,7 +13730,7 @@
 							}
 						},
 						{
-							"id": 640,
+							"id": 644,
 							"name": "stream",
 							"variant": "declaration",
 							"kind": 1024,
@@ -13667,7 +13748,7 @@
 							}
 						},
 						{
-							"id": 641,
+							"id": 645,
 							"name": "dispose",
 							"variant": "declaration",
 							"kind": 2048,
@@ -13676,7 +13757,7 @@
 							},
 							"signatures": [
 								{
-									"id": 642,
+									"id": 646,
 									"name": "dispose",
 									"variant": "signature",
 									"kind": 4096,
@@ -13714,20 +13795,20 @@
 						{
 							"title": "Properties",
 							"children": [
-								639,
-								640
+								643,
+								644
 							]
 						},
 						{
 							"title": "Methods",
 							"children": [
-								641
+								645
 							]
 						}
 					]
 				},
 				{
-					"id": 643,
+					"id": 647,
 					"name": "TimedPlaybackResource",
 					"variant": "declaration",
 					"kind": 256,
@@ -13758,7 +13839,7 @@
 					},
 					"children": [
 						{
-							"id": 645,
+							"id": 649,
 							"name": "container",
 							"variant": "declaration",
 							"kind": 1024,
@@ -13789,7 +13870,7 @@
 							}
 						},
 						{
-							"id": 644,
+							"id": 648,
 							"name": "kind",
 							"variant": "declaration",
 							"kind": 1024,
@@ -13802,7 +13883,7 @@
 							}
 						},
 						{
-							"id": 650,
+							"id": 654,
 							"name": "dispose",
 							"variant": "declaration",
 							"kind": 2048,
@@ -13811,7 +13892,7 @@
 							},
 							"signatures": [
 								{
-									"id": 651,
+									"id": 655,
 									"name": "dispose",
 									"variant": "signature",
 									"kind": 4096,
@@ -13845,21 +13926,21 @@
 							]
 						},
 						{
-							"id": 646,
+							"id": 650,
 							"name": "open",
 							"variant": "declaration",
 							"kind": 2048,
 							"flags": {},
 							"signatures": [
 								{
-									"id": 647,
+									"id": 651,
 									"name": "open",
 									"variant": "signature",
 									"kind": 4096,
 									"flags": {},
 									"parameters": [
 										{
-											"id": 648,
+											"id": 652,
 											"name": "seconds",
 											"variant": "param",
 											"kind": 32768,
@@ -13870,7 +13951,7 @@
 											}
 										},
 										{
-											"id": 649,
+											"id": 653,
 											"name": "signal",
 											"variant": "param",
 											"kind": 32768,
@@ -13904,28 +13985,28 @@
 						{
 							"title": "Properties",
 							"children": [
-								645,
-								644
+								649,
+								648
 							]
 						},
 						{
 							"title": "Methods",
 							"children": [
-								650,
-								646
+								654,
+								650
 							]
 						}
 					]
 				},
 				{
-					"id": 655,
+					"id": 659,
 					"name": "TrackOptions",
 					"variant": "declaration",
 					"kind": 256,
 					"flags": {},
 					"children": [
 						{
-							"id": 657,
+							"id": 661,
 							"name": "onStart",
 							"variant": "declaration",
 							"kind": 1024,
@@ -13943,14 +14024,14 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 658,
+									"id": 662,
 									"name": "__type",
 									"variant": "declaration",
 									"kind": 65536,
 									"flags": {},
 									"signatures": [
 										{
-											"id": 659,
+											"id": 663,
 											"name": "__type",
 											"variant": "signature",
 											"kind": 4096,
@@ -13965,7 +14046,7 @@
 							}
 						},
 						{
-							"id": 656,
+							"id": 660,
 							"name": "signal",
 							"variant": "declaration",
 							"kind": 1024,
@@ -14004,14 +14085,14 @@
 						{
 							"title": "Properties",
 							"children": [
-								657,
-								656
+								661,
+								660
 							]
 						}
 					]
 				},
 				{
-					"id": 660,
+					"id": 664,
 					"name": "UrlPlaybackResource",
 					"variant": "declaration",
 					"kind": 256,
@@ -14042,7 +14123,7 @@
 					},
 					"children": [
 						{
-							"id": 661,
+							"id": 665,
 							"name": "kind",
 							"variant": "declaration",
 							"kind": 1024,
@@ -14055,7 +14136,7 @@
 							}
 						},
 						{
-							"id": 662,
+							"id": 666,
 							"name": "url",
 							"variant": "declaration",
 							"kind": 1024,
@@ -14068,7 +14149,7 @@
 							}
 						},
 						{
-							"id": 663,
+							"id": 667,
 							"name": "dispose",
 							"variant": "declaration",
 							"kind": 2048,
@@ -14077,7 +14158,7 @@
 							},
 							"signatures": [
 								{
-									"id": 664,
+									"id": 668,
 									"name": "dispose",
 									"variant": "signature",
 									"kind": 4096,
@@ -14115,20 +14196,20 @@
 						{
 							"title": "Properties",
 							"children": [
-								661,
-								662
+								665,
+								666
 							]
 						},
 						{
 							"title": "Methods",
 							"children": [
-								663
+								667
 							]
 						}
 					]
 				},
 				{
-					"id": 665,
+					"id": 669,
 					"name": "VoiceGatewayData",
 					"variant": "declaration",
 					"kind": 256,
@@ -14143,7 +14224,7 @@
 					},
 					"children": [
 						{
-							"id": 666,
+							"id": 670,
 							"name": "channelId",
 							"variant": "declaration",
 							"kind": 1024,
@@ -14156,7 +14237,7 @@
 							}
 						},
 						{
-							"id": 669,
+							"id": 673,
 							"name": "endpoint",
 							"variant": "declaration",
 							"kind": 1024,
@@ -14169,7 +14250,7 @@
 							}
 						},
 						{
-							"id": 667,
+							"id": 671,
 							"name": "sessionId",
 							"variant": "declaration",
 							"kind": 1024,
@@ -14182,7 +14263,7 @@
 							}
 						},
 						{
-							"id": 668,
+							"id": 672,
 							"name": "token",
 							"variant": "declaration",
 							"kind": 1024,
@@ -14199,16 +14280,16 @@
 						{
 							"title": "Properties",
 							"children": [
-								666,
-								669,
-								667,
-								668
+								670,
+								673,
+								671,
+								672
 							]
 						}
 					]
 				},
 				{
-					"id": 670,
+					"id": 674,
 					"name": "VoiceSession",
 					"variant": "declaration",
 					"kind": 256,
@@ -14255,7 +14336,7 @@
 					},
 					"children": [
 						{
-							"id": 674,
+							"id": 678,
 							"name": "bitrate",
 							"variant": "declaration",
 							"kind": 1024,
@@ -14276,7 +14357,7 @@
 							}
 						},
 						{
-							"id": 673,
+							"id": 677,
 							"name": "channelId",
 							"variant": "declaration",
 							"kind": 1024,
@@ -14289,7 +14370,7 @@
 							}
 						},
 						{
-							"id": 672,
+							"id": 676,
 							"name": "clientUserId",
 							"variant": "declaration",
 							"kind": 1024,
@@ -14302,7 +14383,7 @@
 							}
 						},
 						{
-							"id": 675,
+							"id": 679,
 							"name": "gateway",
 							"variant": "declaration",
 							"kind": 1024,
@@ -14328,13 +14409,13 @@
 							},
 							"type": {
 								"type": "reference",
-								"target": 665,
+								"target": 669,
 								"name": "VoiceGatewayData",
 								"package": "distube"
 							}
 						},
 						{
-							"id": 671,
+							"id": 675,
 							"name": "guildId",
 							"variant": "declaration",
 							"kind": 1024,
@@ -14347,7 +14428,7 @@
 							}
 						},
 						{
-							"id": 676,
+							"id": 680,
 							"name": "selfDeaf",
 							"variant": "declaration",
 							"kind": 1024,
@@ -14360,7 +14441,7 @@
 							}
 						},
 						{
-							"id": 677,
+							"id": 681,
 							"name": "selfMute",
 							"variant": "declaration",
 							"kind": 1024,
@@ -14373,14 +14454,14 @@
 							}
 						},
 						{
-							"id": 678,
+							"id": 682,
 							"name": "join",
 							"variant": "declaration",
 							"kind": 2048,
 							"flags": {},
 							"signatures": [
 								{
-									"id": 679,
+									"id": 683,
 									"name": "join",
 									"variant": "signature",
 									"kind": 4096,
@@ -14403,7 +14484,7 @@
 									},
 									"parameters": [
 										{
-											"id": 680,
+											"id": 684,
 											"name": "channelId",
 											"variant": "param",
 											"kind": 32768,
@@ -14414,7 +14495,7 @@
 											}
 										},
 										{
-											"id": 681,
+											"id": 685,
 											"name": "options",
 											"variant": "param",
 											"kind": 32768,
@@ -14423,7 +14504,7 @@
 											},
 											"type": {
 												"type": "reference",
-												"target": 574,
+												"target": 578,
 												"name": "JoinOptions",
 												"package": "distube"
 											}
@@ -14449,14 +14530,14 @@
 							]
 						},
 						{
-							"id": 688,
+							"id": 692,
 							"name": "rejoin",
 							"variant": "declaration",
 							"kind": 2048,
 							"flags": {},
 							"signatures": [
 								{
-									"id": 689,
+									"id": 693,
 									"name": "rejoin",
 									"variant": "signature",
 									"kind": 4096,
@@ -14497,14 +14578,14 @@
 							]
 						},
 						{
-							"id": 690,
+							"id": 694,
 							"name": "release",
 							"variant": "declaration",
 							"kind": 2048,
 							"flags": {},
 							"signatures": [
 								{
-									"id": 691,
+									"id": 695,
 									"name": "release",
 									"variant": "signature",
 									"kind": 4096,
@@ -14561,14 +14642,14 @@
 							]
 						},
 						{
-							"id": 682,
+							"id": 686,
 							"name": "setSelfState",
 							"variant": "declaration",
 							"kind": 2048,
 							"flags": {},
 							"signatures": [
 								{
-									"id": 683,
+									"id": 687,
 									"name": "setSelfState",
 									"variant": "signature",
 									"kind": 4096,
@@ -14591,14 +14672,14 @@
 									},
 									"parameters": [
 										{
-											"id": 684,
+											"id": 688,
 											"name": "state",
 											"variant": "param",
 											"kind": 32768,
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"target": 574,
+												"target": 578,
 												"name": "JoinOptions",
 												"package": "distube"
 											}
@@ -14624,21 +14705,21 @@
 							]
 						},
 						{
-							"id": 692,
+							"id": 696,
 							"name": "subscribe",
 							"variant": "declaration",
 							"kind": 2048,
 							"flags": {},
 							"signatures": [
 								{
-									"id": 693,
+									"id": 697,
 									"name": "subscribe",
 									"variant": "signature",
 									"kind": 4096,
 									"flags": {},
 									"parameters": [
 										{
-											"id": 694,
+											"id": 698,
 											"name": "listener",
 											"variant": "param",
 											"kind": 32768,
@@ -14646,28 +14727,28 @@
 											"type": {
 												"type": "reflection",
 												"declaration": {
-													"id": 695,
+													"id": 699,
 													"name": "__type",
 													"variant": "declaration",
 													"kind": 65536,
 													"flags": {},
 													"signatures": [
 														{
-															"id": 696,
+															"id": 700,
 															"name": "__type",
 															"variant": "signature",
 															"kind": 4096,
 															"flags": {},
 															"parameters": [
 																{
-																	"id": 697,
+																	"id": 701,
 																	"name": "event",
 																	"variant": "param",
 																	"kind": 32768,
 																	"flags": {},
 																	"type": {
 																		"type": "reference",
-																		"target": 700,
+																		"target": 704,
 																		"name": "VoiceSessionEvent",
 																		"package": "distube"
 																	}
@@ -14686,14 +14767,14 @@
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 698,
+											"id": 702,
 											"name": "__type",
 											"variant": "declaration",
 											"kind": 65536,
 											"flags": {},
 											"signatures": [
 												{
-													"id": 699,
+													"id": 703,
 													"name": "__type",
 													"variant": "signature",
 													"kind": 4096,
@@ -14710,14 +14791,14 @@
 							]
 						},
 						{
-							"id": 685,
+							"id": 689,
 							"name": "voiceClosed",
 							"variant": "declaration",
 							"kind": 2048,
 							"flags": {},
 							"signatures": [
 								{
-									"id": 686,
+									"id": 690,
 									"name": "voiceClosed",
 									"variant": "signature",
 									"kind": 4096,
@@ -14740,7 +14821,7 @@
 									},
 									"parameters": [
 										{
-											"id": 687,
+											"id": 691,
 											"name": "code",
 											"variant": "param",
 											"kind": 32768,
@@ -14763,37 +14844,37 @@
 						{
 							"title": "Properties",
 							"children": [
-								674,
-								673,
-								672,
-								675,
-								671,
+								678,
+								677,
 								676,
-								677
+								679,
+								675,
+								680,
+								681
 							]
 						},
 						{
 							"title": "Methods",
 							"children": [
-								678,
-								688,
-								690,
 								682,
 								692,
-								685
+								694,
+								686,
+								696,
+								689
 							]
 						}
 					]
 				},
 				{
-					"id": 712,
+					"id": 716,
 					"name": "VoiceSessionOptions",
 					"variant": "declaration",
 					"kind": 256,
 					"flags": {},
 					"children": [
 						{
-							"id": 713,
+							"id": 717,
 							"name": "selfDeaf",
 							"variant": "declaration",
 							"kind": 1024,
@@ -14806,7 +14887,7 @@
 							}
 						},
 						{
-							"id": 714,
+							"id": 718,
 							"name": "selfMute",
 							"variant": "declaration",
 							"kind": 1024,
@@ -14819,7 +14900,7 @@
 							}
 						},
 						{
-							"id": 716,
+							"id": 720,
 							"name": "signal",
 							"variant": "declaration",
 							"kind": 1024,
@@ -14863,7 +14944,7 @@
 							}
 						},
 						{
-							"id": 715,
+							"id": 719,
 							"name": "timeoutMs",
 							"variant": "declaration",
 							"kind": 1024,
@@ -14880,16 +14961,16 @@
 						{
 							"title": "Properties",
 							"children": [
-								713,
-								714,
-								716,
-								715
+								717,
+								718,
+								720,
+								719
 							]
 						}
 					]
 				},
 				{
-					"id": 717,
+					"id": 721,
 					"name": "VoiceTarget",
 					"variant": "declaration",
 					"kind": 256,
@@ -14904,7 +14985,7 @@
 					},
 					"children": [
 						{
-							"id": 719,
+							"id": 723,
 							"name": "channelId",
 							"variant": "declaration",
 							"kind": 1024,
@@ -14917,7 +14998,7 @@
 							}
 						},
 						{
-							"id": 718,
+							"id": 722,
 							"name": "guildId",
 							"variant": "declaration",
 							"kind": 1024,
@@ -14934,14 +15015,14 @@
 						{
 							"title": "Properties",
 							"children": [
-								719,
-								718
+								723,
+								722
 							]
 						}
 					]
 				},
 				{
-					"id": 571,
+					"id": 575,
 					"name": "FilterDefinitions",
 					"variant": "declaration",
 					"kind": 2097152,
@@ -14956,7 +15037,7 @@
 					},
 					"typeParameters": [
 						{
-							"id": 572,
+							"id": 576,
 							"name": "Payload",
 							"variant": "typeParam",
 							"kind": 131072,
@@ -14989,11 +15070,11 @@
 									},
 									{
 										"type": "reference",
-										"target": 556,
+										"target": 560,
 										"typeArguments": [
 											{
 												"type": "reference",
-												"target": 572,
+												"target": 576,
 												"name": "Payload",
 												"package": "distube",
 												"refersToTypeParameter": true
@@ -15012,7 +15093,7 @@
 					}
 				},
 				{
-					"id": 652,
+					"id": 656,
 					"name": "TrackEnd",
 					"variant": "declaration",
 					"kind": 2097152,
@@ -15036,14 +15117,14 @@
 							{
 								"type": "reflection",
 								"declaration": {
-									"id": 653,
+									"id": 657,
 									"name": "__type",
 									"variant": "declaration",
 									"kind": 65536,
 									"flags": {},
 									"children": [
 										{
-											"id": 654,
+											"id": 658,
 											"name": "reason",
 											"variant": "declaration",
 											"kind": 1024,
@@ -15071,7 +15152,7 @@
 										{
 											"title": "Properties",
 											"children": [
-												654
+												658
 											]
 										}
 									]
@@ -15083,7 +15164,7 @@
 					}
 				},
 				{
-					"id": 700,
+					"id": 704,
 					"name": "VoiceSessionEvent",
 					"variant": "declaration",
 					"kind": 2097152,
@@ -15091,75 +15172,6 @@
 					"type": {
 						"type": "union",
 						"types": [
-							{
-								"type": "reference",
-								"target": {
-									"packageName": "typescript",
-									"packagePath": "lib/lib.es5.d.ts",
-									"qualifiedName": "Readonly"
-								},
-								"typeArguments": [
-									{
-										"type": "reflection",
-										"declaration": {
-											"id": 701,
-											"name": "__type",
-											"variant": "declaration",
-											"kind": 65536,
-											"flags": {},
-											"children": [
-												{
-													"id": 703,
-													"name": "channelId",
-													"variant": "declaration",
-													"kind": 1024,
-													"flags": {},
-													"type": {
-														"type": "intrinsic",
-														"name": "string"
-													}
-												},
-												{
-													"id": 704,
-													"name": "gateway",
-													"variant": "declaration",
-													"kind": 1024,
-													"flags": {},
-													"type": {
-														"type": "reference",
-														"target": 665,
-														"name": "VoiceGatewayData",
-														"package": "distube"
-													}
-												},
-												{
-													"id": 702,
-													"name": "type",
-													"variant": "declaration",
-													"kind": 1024,
-													"flags": {},
-													"type": {
-														"type": "literal",
-														"value": "connected"
-													}
-												}
-											],
-											"groups": [
-												{
-													"title": "Properties",
-													"children": [
-														703,
-														704,
-														702
-													]
-												}
-											]
-										}
-									}
-								],
-								"name": "Readonly",
-								"package": "typescript"
-							},
 							{
 								"type": "reference",
 								"target": {
@@ -15179,13 +15191,26 @@
 											"children": [
 												{
 													"id": 707,
-													"name": "reason",
+													"name": "channelId",
 													"variant": "declaration",
 													"kind": 1024,
 													"flags": {},
 													"type": {
-														"type": "literal",
-														"value": "removed"
+														"type": "intrinsic",
+														"name": "string"
+													}
+												},
+												{
+													"id": 708,
+													"name": "gateway",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {},
+													"type": {
+														"type": "reference",
+														"target": 669,
+														"name": "VoiceGatewayData",
+														"package": "distube"
 													}
 												},
 												{
@@ -15196,7 +15221,7 @@
 													"flags": {},
 													"type": {
 														"type": "literal",
-														"value": "disconnected"
+														"value": "connected"
 													}
 												}
 											],
@@ -15205,6 +15230,7 @@
 													"title": "Properties",
 													"children": [
 														707,
+														708,
 														706
 													]
 												}
@@ -15226,7 +15252,7 @@
 									{
 										"type": "reflection",
 										"declaration": {
-											"id": 708,
+											"id": 709,
 											"name": "__type",
 											"variant": "declaration",
 											"kind": 65536,
@@ -15234,6 +15260,61 @@
 											"children": [
 												{
 													"id": 711,
+													"name": "reason",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {},
+													"type": {
+														"type": "literal",
+														"value": "removed"
+													}
+												},
+												{
+													"id": 710,
+													"name": "type",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {},
+													"type": {
+														"type": "literal",
+														"value": "disconnected"
+													}
+												}
+											],
+											"groups": [
+												{
+													"title": "Properties",
+													"children": [
+														711,
+														710
+													]
+												}
+											]
+										}
+									}
+								],
+								"name": "Readonly",
+								"package": "typescript"
+							},
+							{
+								"type": "reference",
+								"target": {
+									"packageName": "typescript",
+									"packagePath": "lib/lib.es5.d.ts",
+									"qualifiedName": "Readonly"
+								},
+								"typeArguments": [
+									{
+										"type": "reflection",
+										"declaration": {
+											"id": 712,
+											"name": "__type",
+											"variant": "declaration",
+											"kind": 65536,
+											"flags": {},
+											"children": [
+												{
+													"id": 715,
 													"name": "error",
 													"variant": "declaration",
 													"kind": 1024,
@@ -15250,7 +15331,7 @@
 													}
 												},
 												{
-													"id": 710,
+													"id": 714,
 													"name": "reason",
 													"variant": "declaration",
 													"kind": 1024,
@@ -15261,7 +15342,7 @@
 													}
 												},
 												{
-													"id": 709,
+													"id": 713,
 													"name": "type",
 													"variant": "declaration",
 													"kind": 1024,
@@ -15276,9 +15357,9 @@
 												{
 													"title": "Properties",
 													"children": [
-														711,
-														710,
-														709
+														715,
+														714,
+														713
 													]
 												}
 											]
@@ -15347,7 +15428,7 @@
 					"target": 373
 				},
 				{
-					"id": 570,
+					"id": 574,
 					"name": "FilterDefinitionInfo",
 					"variant": "reference",
 					"kind": 4194304,
@@ -15355,7 +15436,7 @@
 					"target": 374
 				},
 				{
-					"id": 573,
+					"id": 577,
 					"name": "FilterEntry",
 					"variant": "reference",
 					"kind": 4194304,
@@ -15363,7 +15444,7 @@
 					"target": 380
 				},
 				{
-					"id": 577,
+					"id": 581,
 					"name": "PlaybackResource",
 					"variant": "reference",
 					"kind": 4194304,
@@ -15371,7 +15452,7 @@
 					"target": 384
 				},
 				{
-					"id": 578,
+					"id": 582,
 					"name": "PlaybackResourceKind",
 					"variant": "reference",
 					"kind": 4194304,
@@ -15379,7 +15460,7 @@
 					"target": 385
 				},
 				{
-					"id": 613,
+					"id": 617,
 					"name": "Plugin",
 					"variant": "reference",
 					"kind": 4194304,
@@ -15387,7 +15468,7 @@
 					"target": 420
 				},
 				{
-					"id": 614,
+					"id": 618,
 					"name": "PluginDataOf",
 					"variant": "reference",
 					"kind": 4194304,
@@ -15402,32 +15483,32 @@
 						507,
 						521,
 						528,
-						543,
-						551,
-						556,
-						574,
-						579,
-						608,
-						615,
-						626,
+						547,
+						555,
+						560,
+						578,
+						583,
+						612,
+						619,
 						630,
-						633,
-						638,
-						643,
-						655,
-						660,
-						665,
-						670,
-						712,
-						717
+						634,
+						637,
+						642,
+						647,
+						659,
+						664,
+						669,
+						674,
+						716,
+						721
 					]
 				},
 				{
 					"title": "Type Aliases",
 					"children": [
-						571,
-						652,
-						700
+						575,
+						656,
+						704
 					]
 				},
 				{
@@ -15435,12 +15516,12 @@
 					"children": [
 						519,
 						520,
-						570,
-						573,
+						574,
 						577,
-						578,
-						613,
-						614
+						581,
+						582,
+						617,
+						618
 					]
 				}
 			]
@@ -18134,17 +18215,17 @@
 		"530": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "Engine.createPlayer"
+			"qualifiedName": "Engine.createVoiceSession"
 		},
 		"531": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "Engine.createPlayer"
+			"qualifiedName": "Engine.createVoiceSession"
 		},
 		"532": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "session"
+			"qualifiedName": "target"
 		},
 		"533": {
 			"packageName": "distube",
@@ -18154,827 +18235,827 @@
 		"534": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "Engine.playbackRate"
+			"qualifiedName": "Engine.createPlayer"
 		},
 		"535": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "Engine.playbackRate"
+			"qualifiedName": "Engine.createPlayer"
 		},
 		"536": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "entries"
+			"qualifiedName": "session"
 		},
 		"537": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "Engine.prepare"
+			"qualifiedName": "options"
 		},
 		"538": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "Engine.prepare"
+			"qualifiedName": "Engine.playbackRate"
 		},
 		"539": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "song"
+			"qualifiedName": "Engine.playbackRate"
 		},
 		"540": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "options"
+			"qualifiedName": "entries"
 		},
 		"541": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "Engine.prepare"
 		},
 		"542": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type.signal"
+			"qualifiedName": "Engine.prepare"
 		},
 		"543": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "EngineSettings"
+			"qualifiedName": "song"
 		},
 		"544": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "EngineSettings.filters"
+			"qualifiedName": "options"
 		},
 		"545": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "EngineSettings.opusComplexity"
+			"qualifiedName": "__type"
 		},
 		"546": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "EngineSettings.bufferMs"
+			"qualifiedName": "__type.signal"
 		},
 		"547": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "EngineSettings.report"
+			"qualifiedName": "EngineSettings"
 		},
 		"548": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "EngineSettings.filters"
 		},
 		"549": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "EngineSettings.opusComplexity"
 		},
 		"550": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "diagnostic"
+			"qualifiedName": "EngineSettings.bufferMs"
 		},
 		"551": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "FilePlaybackResource"
+			"qualifiedName": "EngineSettings.report"
 		},
 		"552": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "FilePlaybackResource.kind"
+			"qualifiedName": "__type"
 		},
 		"553": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "FilePlaybackResource.path"
+			"qualifiedName": "__type"
 		},
 		"554": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "FilePlaybackResource.dispose"
+			"qualifiedName": "diagnostic"
 		},
 		"555": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "FilePlaybackResource.dispose"
+			"qualifiedName": "FilePlaybackResource"
 		},
 		"556": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "FilterDefinition"
+			"qualifiedName": "FilePlaybackResource.kind"
 		},
 		"557": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "FilterDefinition.Payload"
+			"qualifiedName": "FilePlaybackResource.path"
 		},
 		"558": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "FilterDefinition.render"
+			"qualifiedName": "FilePlaybackResource.dispose"
 		},
 		"559": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "FilePlaybackResource.dispose"
 		},
 		"560": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "FilterDefinition"
 		},
 		"561": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "value"
+			"qualifiedName": "FilterDefinition.Payload"
 		},
 		"562": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "FilterDefinition.default"
+			"qualifiedName": "FilterDefinition.render"
 		},
 		"563": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "FilterDefinition.min"
+			"qualifiedName": "__type"
 		},
 		"564": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "FilterDefinition.max"
+			"qualifiedName": "__type"
 		},
 		"565": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "FilterDefinition.label"
+			"qualifiedName": "value"
 		},
 		"566": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "FilterDefinition.tempo"
+			"qualifiedName": "FilterDefinition.default"
 		},
 		"567": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "FilterDefinition.min"
 		},
 		"568": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "FilterDefinition.max"
 		},
 		"569": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "value"
+			"qualifiedName": "FilterDefinition.label"
 		},
 		"570": {
 			"packageName": "distube",
-			"packagePath": "dist/integrations.d.mts",
-			"qualifiedName": "FilterDefinitionInfo"
+			"packagePath": "src/media.ts",
+			"qualifiedName": "FilterDefinition.tempo"
 		},
 		"571": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "FilterDefinitions"
+			"qualifiedName": "__type"
 		},
 		"572": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "Payload"
+			"qualifiedName": "__type"
 		},
 		"573": {
 			"packageName": "distube",
-			"packagePath": "dist/integrations.d.mts",
-			"qualifiedName": "FilterEntry"
+			"packagePath": "src/media.ts",
+			"qualifiedName": "value"
 		},
 		"574": {
 			"packageName": "distube",
-			"packagePath": "src/media.ts",
-			"qualifiedName": "JoinOptions"
+			"packagePath": "dist/integrations.d.mts",
+			"qualifiedName": "FilterDefinitionInfo"
 		},
 		"575": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "JoinOptions.selfDeaf"
+			"qualifiedName": "FilterDefinitions"
 		},
 		"576": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "JoinOptions.selfMute"
+			"qualifiedName": "Payload"
 		},
 		"577": {
 			"packageName": "distube",
 			"packagePath": "dist/integrations.d.mts",
-			"qualifiedName": "PlaybackResource"
+			"qualifiedName": "FilterEntry"
 		},
 		"578": {
 			"packageName": "distube",
-			"packagePath": "dist/integrations.d.mts",
-			"qualifiedName": "PlaybackResourceKind"
+			"packagePath": "src/media.ts",
+			"qualifiedName": "JoinOptions"
 		},
 		"579": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "Player"
+			"qualifiedName": "JoinOptions.selfDeaf"
 		},
 		"580": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "Player.position"
+			"qualifiedName": "JoinOptions.selfMute"
 		},
 		"581": {
 			"packageName": "distube",
-			"packagePath": "src/media.ts",
-			"qualifiedName": "Player.ping"
+			"packagePath": "dist/integrations.d.mts",
+			"qualifiedName": "PlaybackResource"
 		},
 		"582": {
 			"packageName": "distube",
-			"packagePath": "src/media.ts",
-			"qualifiedName": "Player.play"
+			"packagePath": "dist/integrations.d.mts",
+			"qualifiedName": "PlaybackResourceKind"
 		},
 		"583": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "Player.play"
+			"qualifiedName": "Player"
 		},
 		"584": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "resource"
+			"qualifiedName": "Player.position"
 		},
 		"585": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "options"
+			"qualifiedName": "Player.ping"
 		},
 		"586": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "Player.play"
 		},
 		"587": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type.reason"
+			"qualifiedName": "Player.play"
 		},
 		"588": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "Player.pause"
+			"qualifiedName": "resource"
 		},
 		"589": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "Player.pause"
+			"qualifiedName": "options"
 		},
 		"590": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "Player.resume"
+			"qualifiedName": "__type"
 		},
 		"591": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "Player.resume"
+			"qualifiedName": "__type.reason"
 		},
 		"592": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "Player.stopTrack"
+			"qualifiedName": "Player.pause"
 		},
 		"593": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "Player.stopTrack"
+			"qualifiedName": "Player.pause"
 		},
 		"594": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "Player.seek"
+			"qualifiedName": "Player.resume"
 		},
 		"595": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "Player.seek"
+			"qualifiedName": "Player.resume"
 		},
 		"596": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "seconds"
+			"qualifiedName": "Player.stopTrack"
 		},
 		"597": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "Player.setVolume"
+			"qualifiedName": "Player.stopTrack"
 		},
 		"598": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "Player.setVolume"
+			"qualifiedName": "Player.seek"
 		},
 		"599": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "percent"
+			"qualifiedName": "Player.seek"
 		},
 		"600": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "Player.setFilters"
+			"qualifiedName": "seconds"
 		},
 		"601": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "Player.setFilters"
+			"qualifiedName": "Player.setVolume"
 		},
 		"602": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "entries"
+			"qualifiedName": "Player.setVolume"
 		},
 		"603": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "Player.updateVoiceGateway"
+			"qualifiedName": "percent"
 		},
 		"604": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "Player.updateVoiceGateway"
+			"qualifiedName": "Player.setFilters"
 		},
 		"605": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "gateway"
+			"qualifiedName": "Player.setFilters"
 		},
 		"606": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "Player.release"
+			"qualifiedName": "entries"
 		},
 		"607": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "Player.release"
+			"qualifiedName": "Player.updateVoiceGateway"
 		},
 		"608": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "PlayerOptions"
+			"qualifiedName": "Player.updateVoiceGateway"
 		},
 		"609": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "PlayerOptions.onClosed"
+			"qualifiedName": "gateway"
 		},
 		"610": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "Player.release"
 		},
 		"611": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "Player.release"
 		},
 		"612": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "error"
+			"qualifiedName": "PlayerOptions"
 		},
 		"613": {
 			"packageName": "distube",
-			"packagePath": "dist/integrations.d.mts",
-			"qualifiedName": "Plugin"
+			"packagePath": "src/media.ts",
+			"qualifiedName": "PlayerOptions.onClosed"
 		},
 		"614": {
 			"packageName": "distube",
-			"packagePath": "dist/integrations.d.mts",
-			"qualifiedName": "PluginDataOf"
+			"packagePath": "src/media.ts",
+			"qualifiedName": "__type"
 		},
 		"615": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "ReaderPlaybackResource"
+			"qualifiedName": "__type"
 		},
 		"616": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "ReaderPlaybackResource.kind"
+			"qualifiedName": "error"
 		},
 		"617": {
 			"packageName": "distube",
-			"packagePath": "src/media.ts",
-			"qualifiedName": "ReaderPlaybackResource.size"
+			"packagePath": "dist/integrations.d.mts",
+			"qualifiedName": "Plugin"
 		},
 		"618": {
 			"packageName": "distube",
-			"packagePath": "src/media.ts",
-			"qualifiedName": "ReaderPlaybackResource.container"
+			"packagePath": "dist/integrations.d.mts",
+			"qualifiedName": "PluginDataOf"
 		},
 		"619": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "ReaderPlaybackResource.read"
+			"qualifiedName": "ReaderPlaybackResource"
 		},
 		"620": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "ReaderPlaybackResource.read"
+			"qualifiedName": "ReaderPlaybackResource.kind"
 		},
 		"621": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "start"
+			"qualifiedName": "ReaderPlaybackResource.size"
 		},
 		"622": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "end"
+			"qualifiedName": "ReaderPlaybackResource.container"
 		},
 		"623": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "signal"
+			"qualifiedName": "ReaderPlaybackResource.read"
 		},
 		"624": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "ReaderPlaybackResource.dispose"
+			"qualifiedName": "ReaderPlaybackResource.read"
 		},
 		"625": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "ReaderPlaybackResource.dispose"
+			"qualifiedName": "start"
 		},
 		"626": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "RelatedOptions"
+			"qualifiedName": "end"
 		},
 		"627": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "RelatedOptions.signal"
+			"qualifiedName": "signal"
 		},
 		"628": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "RelatedOptions.exclude"
+			"qualifiedName": "ReaderPlaybackResource.dispose"
 		},
 		"629": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "RelatedOptions.allowAgeRestricted"
+			"qualifiedName": "ReaderPlaybackResource.dispose"
 		},
 		"630": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "ResolveOptions"
+			"qualifiedName": "RelatedOptions"
 		},
 		"631": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "ResolveOptions.signal"
+			"qualifiedName": "RelatedOptions.signal"
 		},
 		"632": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "ResolveOptions.maxPlaylistSongs"
+			"qualifiedName": "RelatedOptions.exclude"
 		},
 		"633": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "SearchOptions"
+			"qualifiedName": "RelatedOptions.allowAgeRestricted"
 		},
 		"634": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "SearchOptions.signal"
+			"qualifiedName": "ResolveOptions"
 		},
 		"635": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "SearchOptions.limit"
+			"qualifiedName": "ResolveOptions.signal"
 		},
 		"636": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "SearchOptions.offset"
+			"qualifiedName": "ResolveOptions.maxPlaylistSongs"
 		},
 		"637": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "SearchOptions.allowAgeRestricted"
+			"qualifiedName": "SearchOptions"
 		},
 		"638": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "StreamPlaybackResource"
+			"qualifiedName": "SearchOptions.signal"
 		},
 		"639": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "StreamPlaybackResource.kind"
+			"qualifiedName": "SearchOptions.limit"
 		},
 		"640": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "StreamPlaybackResource.stream"
+			"qualifiedName": "SearchOptions.offset"
 		},
 		"641": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "StreamPlaybackResource.dispose"
+			"qualifiedName": "SearchOptions.allowAgeRestricted"
 		},
 		"642": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "StreamPlaybackResource.dispose"
+			"qualifiedName": "StreamPlaybackResource"
 		},
 		"643": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "TimedPlaybackResource"
+			"qualifiedName": "StreamPlaybackResource.kind"
 		},
 		"644": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "TimedPlaybackResource.kind"
+			"qualifiedName": "StreamPlaybackResource.stream"
 		},
 		"645": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "TimedPlaybackResource.container"
+			"qualifiedName": "StreamPlaybackResource.dispose"
 		},
 		"646": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "TimedPlaybackResource.open"
+			"qualifiedName": "StreamPlaybackResource.dispose"
 		},
 		"647": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "TimedPlaybackResource.open"
+			"qualifiedName": "TimedPlaybackResource"
 		},
 		"648": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "seconds"
+			"qualifiedName": "TimedPlaybackResource.kind"
 		},
 		"649": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "signal"
+			"qualifiedName": "TimedPlaybackResource.container"
 		},
 		"650": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "TimedPlaybackResource.dispose"
+			"qualifiedName": "TimedPlaybackResource.open"
 		},
 		"651": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "TimedPlaybackResource.dispose"
+			"qualifiedName": "TimedPlaybackResource.open"
 		},
 		"652": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "TrackEnd"
+			"qualifiedName": "seconds"
 		},
 		"653": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "signal"
 		},
 		"654": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type.reason"
+			"qualifiedName": "TimedPlaybackResource.dispose"
 		},
 		"655": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "TrackOptions"
+			"qualifiedName": "TimedPlaybackResource.dispose"
 		},
 		"656": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "TrackOptions.signal"
+			"qualifiedName": "TrackEnd"
 		},
 		"657": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "TrackOptions.onStart"
+			"qualifiedName": "__type"
 		},
 		"658": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "__type.reason"
 		},
 		"659": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "TrackOptions"
 		},
 		"660": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "UrlPlaybackResource"
+			"qualifiedName": "TrackOptions.signal"
 		},
 		"661": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "UrlPlaybackResource.kind"
+			"qualifiedName": "TrackOptions.onStart"
 		},
 		"662": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "UrlPlaybackResource.url"
+			"qualifiedName": "__type"
 		},
 		"663": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "UrlPlaybackResource.dispose"
+			"qualifiedName": "__type"
 		},
 		"664": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "UrlPlaybackResource.dispose"
+			"qualifiedName": "UrlPlaybackResource"
 		},
 		"665": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceGatewayData"
+			"qualifiedName": "UrlPlaybackResource.kind"
 		},
 		"666": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceGatewayData.channelId"
+			"qualifiedName": "UrlPlaybackResource.url"
 		},
 		"667": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceGatewayData.sessionId"
+			"qualifiedName": "UrlPlaybackResource.dispose"
 		},
 		"668": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceGatewayData.token"
+			"qualifiedName": "UrlPlaybackResource.dispose"
 		},
 		"669": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceGatewayData.endpoint"
+			"qualifiedName": "VoiceGatewayData"
 		},
 		"670": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSession"
+			"qualifiedName": "VoiceGatewayData.channelId"
 		},
 		"671": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSession.guildId"
+			"qualifiedName": "VoiceGatewayData.sessionId"
 		},
 		"672": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSession.clientUserId"
+			"qualifiedName": "VoiceGatewayData.token"
 		},
 		"673": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSession.channelId"
+			"qualifiedName": "VoiceGatewayData.endpoint"
 		},
 		"674": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSession.bitrate"
+			"qualifiedName": "VoiceSession"
 		},
 		"675": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSession.gateway"
+			"qualifiedName": "VoiceSession.guildId"
 		},
 		"676": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSession.selfDeaf"
+			"qualifiedName": "VoiceSession.clientUserId"
 		},
 		"677": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSession.selfMute"
+			"qualifiedName": "VoiceSession.channelId"
 		},
 		"678": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSession.join"
+			"qualifiedName": "VoiceSession.bitrate"
 		},
 		"679": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSession.join"
+			"qualifiedName": "VoiceSession.gateway"
 		},
 		"680": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "channelId"
+			"qualifiedName": "VoiceSession.selfDeaf"
 		},
 		"681": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "options"
+			"qualifiedName": "VoiceSession.selfMute"
 		},
 		"682": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSession.setSelfState"
+			"qualifiedName": "VoiceSession.join"
 		},
 		"683": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSession.setSelfState"
+			"qualifiedName": "VoiceSession.join"
 		},
 		"684": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "state"
+			"qualifiedName": "channelId"
 		},
 		"685": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSession.voiceClosed"
+			"qualifiedName": "options"
 		},
 		"686": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSession.voiceClosed"
+			"qualifiedName": "VoiceSession.setSelfState"
 		},
 		"687": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "code"
+			"qualifiedName": "VoiceSession.setSelfState"
 		},
 		"688": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSession.rejoin"
+			"qualifiedName": "state"
 		},
 		"689": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSession.rejoin"
+			"qualifiedName": "VoiceSession.voiceClosed"
 		},
 		"690": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSession.release"
+			"qualifiedName": "VoiceSession.voiceClosed"
 		},
 		"691": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSession.release"
+			"qualifiedName": "code"
 		},
 		"692": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSession.subscribe"
+			"qualifiedName": "VoiceSession.rejoin"
 		},
 		"693": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSession.subscribe"
+			"qualifiedName": "VoiceSession.rejoin"
 		},
 		"694": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "listener"
+			"qualifiedName": "VoiceSession.release"
 		},
 		"695": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "VoiceSession.release"
 		},
 		"696": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "VoiceSession.subscribe"
 		},
 		"697": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "event"
+			"qualifiedName": "VoiceSession.subscribe"
 		},
 		"698": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "listener"
 		},
 		"699": {
 			"packageName": "distube",
@@ -18984,27 +19065,27 @@
 		"700": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSessionEvent"
+			"qualifiedName": "__type"
 		},
 		"701": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "event"
 		},
 		"702": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type.type"
+			"qualifiedName": "__type"
 		},
 		"703": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type.channelId"
+			"qualifiedName": "__type"
 		},
 		"704": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type.gateway"
+			"qualifiedName": "VoiceSessionEvent"
 		},
 		"705": {
 			"packageName": "distube",
@@ -19019,64 +19100,84 @@
 		"707": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type.reason"
+			"qualifiedName": "__type.channelId"
 		},
 		"708": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "__type.gateway"
 		},
 		"709": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type.type"
+			"qualifiedName": "__type"
 		},
 		"710": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type.reason"
+			"qualifiedName": "__type.type"
 		},
 		"711": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type.error"
+			"qualifiedName": "__type.reason"
 		},
 		"712": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSessionOptions"
+			"qualifiedName": "__type"
 		},
 		"713": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSessionOptions.selfDeaf"
+			"qualifiedName": "__type.type"
 		},
 		"714": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSessionOptions.selfMute"
+			"qualifiedName": "__type.reason"
 		},
 		"715": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSessionOptions.timeoutMs"
+			"qualifiedName": "__type.error"
 		},
 		"716": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSessionOptions.signal"
+			"qualifiedName": "VoiceSessionOptions"
 		},
 		"717": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceTarget"
+			"qualifiedName": "VoiceSessionOptions.selfDeaf"
 		},
 		"718": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceTarget.guildId"
+			"qualifiedName": "VoiceSessionOptions.selfMute"
 		},
 		"719": {
+			"packageName": "distube",
+			"packagePath": "src/media.ts",
+			"qualifiedName": "VoiceSessionOptions.timeoutMs"
+		},
+		"720": {
+			"packageName": "distube",
+			"packagePath": "src/media.ts",
+			"qualifiedName": "VoiceSessionOptions.signal"
+		},
+		"721": {
+			"packageName": "distube",
+			"packagePath": "src/media.ts",
+			"qualifiedName": "VoiceTarget"
+		},
+		"722": {
+			"packageName": "distube",
+			"packagePath": "src/media.ts",
+			"qualifiedName": "VoiceTarget.guildId"
+		},
+		"723": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
 			"qualifiedName": "VoiceTarget.channelId"
