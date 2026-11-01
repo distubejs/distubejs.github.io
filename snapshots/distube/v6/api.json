@@ -373,6 +373,30 @@
 									"variant": "signature",
 									"kind": 4096,
 									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Calls "
+											},
+											{
+												"kind": "code",
+												"text": "`listener`"
+											},
+											{
+												"kind": "text",
+												"text": " in a later microtask, in emit order; a listener throw or rejection reaches only "
+											},
+											{
+												"kind": "code",
+												"text": "`onDiagnostic`"
+											},
+											{
+												"kind": "text",
+												"text": "."
+											}
+										]
+									},
 									"typeParameters": [
 										{
 											"id": 64,
@@ -2127,7 +2151,7 @@
 							},
 							{
 								"kind": "text",
-								"text": " is declared by the owning SourcePlugin; core stores the reference and never reads,\nclones, freezes or interprets it."
+								"text": " is declared by the owning Plugin; core stores the reference and never reads,\nclones, freezes or interprets it."
 							}
 						]
 					},
@@ -8546,22 +8570,6 @@
 					"variant": "declaration",
 					"kind": 256,
 					"flags": {},
-					"comment": {
-						"summary": [
-							{
-								"kind": "text",
-								"text": "Options for "
-							},
-							{
-								"kind": "code",
-								"text": "`distube.suggest`"
-							},
-							{
-								"kind": "text",
-								"text": "."
-							}
-						]
-					},
 					"children": [
 						{
 							"id": 338,
@@ -9538,14 +9546,6 @@
 					"variant": "declaration",
 					"kind": 2097152,
 					"flags": {},
-					"comment": {
-						"summary": [
-							{
-								"kind": "text",
-								"text": "What core accepts wherever media enters the client."
-							}
-						]
-					},
 					"type": {
 						"type": "union",
 						"types": [
@@ -14975,14 +14975,6 @@
 					"variant": "declaration",
 					"kind": 256,
 					"flags": {},
-					"comment": {
-						"summary": [
-							{
-								"kind": "text",
-								"text": "The guild and voice channel a voice occupies, in platform-neutral IDs."
-							}
-						]
-					},
 					"children": [
 						{
 							"id": 723,
