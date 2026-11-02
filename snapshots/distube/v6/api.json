@@ -5473,7 +5473,15 @@
 										"summary": [
 											{
 												"kind": "text",
-												"text": "Seeks the current item within a known duration. Rejects "
+												"text": "Seeks the current item within the known duration of the Song that plays, its "
+											},
+											{
+												"kind": "code",
+												"text": "`fallback`"
+											},
+											{
+												"kind": "text",
+												"text": " when it has one. Rejects "
 											},
 											{
 												"kind": "code",
@@ -11194,6 +11202,30 @@
 									"variant": "signature",
 									"kind": 4096,
 									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "A gateway-only session for an engine plugin that holds its own voice socket: it sends the bot's voice state and\npairs the platform's credentials into "
+											},
+											{
+												"kind": "code",
+												"text": "`gateway`"
+											},
+											{
+												"kind": "text",
+												"text": ". Core calls it only when the engine has no "
+											},
+											{
+												"kind": "code",
+												"text": "`createVoiceSession`"
+											},
+											{
+												"kind": "text",
+												"text": "."
+											}
+										]
+									},
 									"parameters": [
 										{
 											"id": 514,
@@ -11203,7 +11235,7 @@
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"target": 721,
+												"target": 718,
 												"name": "VoiceTarget",
 												"package": "distube"
 											}
@@ -11216,7 +11248,7 @@
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"target": 716,
+												"target": 713,
 												"name": "VoiceSessionOptions",
 												"package": "distube"
 											}
@@ -11291,7 +11323,7 @@
 									],
 									"type": {
 										"type": "reference",
-										"target": 721,
+										"target": 718,
 										"name": "VoiceTarget",
 										"package": "distube"
 									}
@@ -11582,7 +11614,7 @@
 										"summary": [
 											{
 												"kind": "text",
-												"text": "Opens the voice through the engine's own connection, which then sends the join and receives the platform's\ncredentials as they arrive. When present, core calls it instead of "
+												"text": "For an engine that owns its voice connection: opens the voice through it, so the connection sends the join and\nreceives the platform's credentials as they arrive. When present, core calls it instead of\n"
 											},
 											{
 												"kind": "code",
@@ -11603,7 +11635,7 @@
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"target": 721,
+												"target": 718,
 												"name": "VoiceTarget",
 												"package": "distube"
 											}
@@ -11616,7 +11648,7 @@
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"target": 716,
+												"target": 713,
 												"name": "VoiceSessionOptions",
 												"package": "distube"
 											}
@@ -14298,7 +14330,7 @@
 						"summary": [
 							{
 								"kind": "text",
-								"text": "One guild's voice presence, owned by the Adapter, which also owns bounded recovery. Only a terminal disconnect\nreaches core. "
+								"text": "One guild's voice presence, which also owns bounded recovery. Only a terminal disconnect reaches core. "
 							},
 							{
 								"kind": "code",
@@ -14306,19 +14338,11 @@
 							},
 							{
 								"kind": "text",
-								"text": ", "
+								"text": ",\n"
 							},
 							{
 								"kind": "code",
 								"text": "`setSelfState`"
-							},
-							{
-								"kind": "text",
-								"text": ", "
-							},
-							{
-								"kind": "code",
-								"text": "`rejoin`"
 							},
 							{
 								"kind": "text",
@@ -14363,6 +14387,14 @@
 							"kind": 1024,
 							"flags": {
 								"isReadonly": true
+							},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "The channel the bot's latest voice state names; the one owner of the voice's channel."
+									}
+								]
 							},
 							"type": {
 								"type": "intrinsic",
@@ -14531,61 +14563,13 @@
 						},
 						{
 							"id": 692,
-							"name": "rejoin",
-							"variant": "declaration",
-							"kind": 2048,
-							"flags": {},
-							"signatures": [
-								{
-									"id": 693,
-									"name": "rejoin",
-									"variant": "signature",
-									"kind": 4096,
-									"flags": {},
-									"comment": {
-										"summary": [
-											{
-												"kind": "text",
-												"text": "Leaves and rejoins the current channel; resolves after the "
-											},
-											{
-												"kind": "code",
-												"text": "`connected`"
-											},
-											{
-												"kind": "text",
-												"text": " event with the fresh credentials."
-											}
-										]
-									},
-									"type": {
-										"type": "reference",
-										"target": {
-											"packageName": "typescript",
-											"packagePath": "lib/lib.es5.d.ts",
-											"qualifiedName": "Promise"
-										},
-										"typeArguments": [
-											{
-												"type": "intrinsic",
-												"name": "void"
-											}
-										],
-										"name": "Promise",
-										"package": "typescript"
-									}
-								}
-							]
-						},
-						{
-							"id": 694,
 							"name": "release",
 							"variant": "declaration",
 							"kind": 2048,
 							"flags": {},
 							"signatures": [
 								{
-									"id": 695,
+									"id": 693,
 									"name": "release",
 									"variant": "signature",
 									"kind": 4096,
@@ -14602,19 +14586,11 @@
 											},
 											{
 												"kind": "text",
-												"text": ", "
-											},
-											{
-												"kind": "code",
-												"text": "`setSelfState`"
-											},
-											{
-												"kind": "text",
 												"text": " and "
 											},
 											{
 												"kind": "code",
-												"text": "`rejoin`"
+												"text": "`setSelfState`"
 											},
 											{
 												"kind": "text",
@@ -14705,21 +14681,21 @@
 							]
 						},
 						{
-							"id": 696,
+							"id": 694,
 							"name": "subscribe",
 							"variant": "declaration",
 							"kind": 2048,
 							"flags": {},
 							"signatures": [
 								{
-									"id": 697,
+									"id": 695,
 									"name": "subscribe",
 									"variant": "signature",
 									"kind": 4096,
 									"flags": {},
 									"parameters": [
 										{
-											"id": 698,
+											"id": 696,
 											"name": "listener",
 											"variant": "param",
 											"kind": 32768,
@@ -14727,28 +14703,28 @@
 											"type": {
 												"type": "reflection",
 												"declaration": {
-													"id": 699,
+													"id": 697,
 													"name": "__type",
 													"variant": "declaration",
 													"kind": 65536,
 													"flags": {},
 													"signatures": [
 														{
-															"id": 700,
+															"id": 698,
 															"name": "__type",
 															"variant": "signature",
 															"kind": 4096,
 															"flags": {},
 															"parameters": [
 																{
-																	"id": 701,
+																	"id": 699,
 																	"name": "event",
 																	"variant": "param",
 																	"kind": 32768,
 																	"flags": {},
 																	"type": {
 																		"type": "reference",
-																		"target": 704,
+																		"target": 702,
 																		"name": "VoiceSessionEvent",
 																		"package": "distube"
 																	}
@@ -14767,14 +14743,14 @@
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 702,
+											"id": 700,
 											"name": "__type",
 											"variant": "declaration",
 											"kind": 65536,
 											"flags": {},
 											"signatures": [
 												{
-													"id": 703,
+													"id": 701,
 													"name": "__type",
 													"variant": "signature",
 													"kind": 4096,
@@ -14807,7 +14783,7 @@
 										"summary": [
 											{
 												"kind": "text",
-												"text": "Reports a Discord voice close code from a voice socket outside the Adapter, such as a remote engine's. The\nsession applies its own recovery policy. Does nothing after "
+												"text": "Reports a Discord voice close code from a voice socket outside the session, such as a remote engine's, and the\nsession recovers. A session that holds its own voice socket ignores it. Does nothing after "
 											},
 											{
 												"kind": "code",
@@ -14858,23 +14834,22 @@
 							"children": [
 								682,
 								692,
-								694,
 								686,
-								696,
+								694,
 								689
 							]
 						}
 					]
 				},
 				{
-					"id": 716,
+					"id": 713,
 					"name": "VoiceSessionOptions",
 					"variant": "declaration",
 					"kind": 256,
 					"flags": {},
 					"children": [
 						{
-							"id": 717,
+							"id": 714,
 							"name": "selfDeaf",
 							"variant": "declaration",
 							"kind": 1024,
@@ -14887,7 +14862,7 @@
 							}
 						},
 						{
-							"id": 718,
+							"id": 715,
 							"name": "selfMute",
 							"variant": "declaration",
 							"kind": 1024,
@@ -14900,7 +14875,7 @@
 							}
 						},
 						{
-							"id": 720,
+							"id": 717,
 							"name": "signal",
 							"variant": "declaration",
 							"kind": 1024,
@@ -14944,7 +14919,7 @@
 							}
 						},
 						{
-							"id": 719,
+							"id": 716,
 							"name": "timeoutMs",
 							"variant": "declaration",
 							"kind": 1024,
@@ -14961,23 +14936,23 @@
 						{
 							"title": "Properties",
 							"children": [
+								714,
+								715,
 								717,
-								718,
-								720,
-								719
+								716
 							]
 						}
 					]
 				},
 				{
-					"id": 721,
+					"id": 718,
 					"name": "VoiceTarget",
 					"variant": "declaration",
 					"kind": 256,
 					"flags": {},
 					"children": [
 						{
-							"id": 723,
+							"id": 720,
 							"name": "channelId",
 							"variant": "declaration",
 							"kind": 1024,
@@ -14990,7 +14965,7 @@
 							}
 						},
 						{
-							"id": 722,
+							"id": 719,
 							"name": "guildId",
 							"variant": "declaration",
 							"kind": 1024,
@@ -15007,8 +14982,8 @@
 						{
 							"title": "Properties",
 							"children": [
-								723,
-								722
+								720,
+								719
 							]
 						}
 					]
@@ -15156,7 +15131,7 @@
 					}
 				},
 				{
-					"id": 704,
+					"id": 702,
 					"name": "VoiceSessionEvent",
 					"variant": "declaration",
 					"kind": 2097152,
@@ -15175,25 +15150,14 @@
 									{
 										"type": "reflection",
 										"declaration": {
-											"id": 705,
+											"id": 703,
 											"name": "__type",
 											"variant": "declaration",
 											"kind": 65536,
 											"flags": {},
 											"children": [
 												{
-													"id": 707,
-													"name": "channelId",
-													"variant": "declaration",
-													"kind": 1024,
-													"flags": {},
-													"type": {
-														"type": "intrinsic",
-														"name": "string"
-													}
-												},
-												{
-													"id": 708,
+													"id": 705,
 													"name": "gateway",
 													"variant": "declaration",
 													"kind": 1024,
@@ -15206,7 +15170,7 @@
 													}
 												},
 												{
-													"id": 706,
+													"id": 704,
 													"name": "type",
 													"variant": "declaration",
 													"kind": 1024,
@@ -15221,9 +15185,63 @@
 												{
 													"title": "Properties",
 													"children": [
-														707,
+														705,
+														704
+													]
+												}
+											]
+										}
+									}
+								],
+								"name": "Readonly",
+								"package": "typescript"
+							},
+							{
+								"type": "reference",
+								"target": {
+									"packageName": "typescript",
+									"packagePath": "lib/lib.es5.d.ts",
+									"qualifiedName": "Readonly"
+								},
+								"typeArguments": [
+									{
+										"type": "reflection",
+										"declaration": {
+											"id": 706,
+											"name": "__type",
+											"variant": "declaration",
+											"kind": 65536,
+											"flags": {},
+											"children": [
+												{
+													"id": 708,
+													"name": "reason",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {},
+													"type": {
+														"type": "literal",
+														"value": "removed"
+													}
+												},
+												{
+													"id": 707,
+													"name": "type",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {},
+													"type": {
+														"type": "literal",
+														"value": "disconnected"
+													}
+												}
+											],
+											"groups": [
+												{
+													"title": "Properties",
+													"children": [
 														708,
-														706
+														707
 													]
 												}
 											]
@@ -15251,6 +15269,23 @@
 											"flags": {},
 											"children": [
 												{
+													"id": 712,
+													"name": "error",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {},
+													"type": {
+														"type": "reference",
+														"target": {
+															"packageName": "typescript",
+															"packagePath": "lib/lib.es5.d.ts",
+															"qualifiedName": "Error"
+														},
+														"name": "Error",
+														"package": "typescript"
+													}
+												},
+												{
 													"id": 711,
 													"name": "reason",
 													"variant": "declaration",
@@ -15258,7 +15293,7 @@
 													"flags": {},
 													"type": {
 														"type": "literal",
-														"value": "removed"
+														"value": "failed"
 													}
 												},
 												{
@@ -15277,81 +15312,9 @@
 												{
 													"title": "Properties",
 													"children": [
+														712,
 														711,
 														710
-													]
-												}
-											]
-										}
-									}
-								],
-								"name": "Readonly",
-								"package": "typescript"
-							},
-							{
-								"type": "reference",
-								"target": {
-									"packageName": "typescript",
-									"packagePath": "lib/lib.es5.d.ts",
-									"qualifiedName": "Readonly"
-								},
-								"typeArguments": [
-									{
-										"type": "reflection",
-										"declaration": {
-											"id": 712,
-											"name": "__type",
-											"variant": "declaration",
-											"kind": 65536,
-											"flags": {},
-											"children": [
-												{
-													"id": 715,
-													"name": "error",
-													"variant": "declaration",
-													"kind": 1024,
-													"flags": {},
-													"type": {
-														"type": "reference",
-														"target": {
-															"packageName": "typescript",
-															"packagePath": "lib/lib.es5.d.ts",
-															"qualifiedName": "Error"
-														},
-														"name": "Error",
-														"package": "typescript"
-													}
-												},
-												{
-													"id": 714,
-													"name": "reason",
-													"variant": "declaration",
-													"kind": 1024,
-													"flags": {},
-													"type": {
-														"type": "literal",
-														"value": "failed"
-													}
-												},
-												{
-													"id": 713,
-													"name": "type",
-													"variant": "declaration",
-													"kind": 1024,
-													"flags": {},
-													"type": {
-														"type": "literal",
-														"value": "disconnected"
-													}
-												}
-											],
-											"groups": [
-												{
-													"title": "Properties",
-													"children": [
-														715,
-														714,
-														713
 													]
 												}
 											]
@@ -15396,7 +15359,7 @@
 								},
 								{
 									"kind": "text",
-									"text": ": the Adapter exhausted its recovery policy."
+									"text": ": a terminal close, or a recovery that missed its deadline."
 								}
 							],
 							[]
@@ -15491,8 +15454,8 @@
 						664,
 						669,
 						674,
-						716,
-						721
+						713,
+						718
 					]
 				},
 				{
@@ -15500,7 +15463,7 @@
 					"children": [
 						575,
 						656,
-						704
+						702
 					]
 				},
 				{
@@ -19017,42 +18980,42 @@
 		"692": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSession.rejoin"
+			"qualifiedName": "VoiceSession.release"
 		},
 		"693": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSession.rejoin"
+			"qualifiedName": "VoiceSession.release"
 		},
 		"694": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSession.release"
+			"qualifiedName": "VoiceSession.subscribe"
 		},
 		"695": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSession.release"
+			"qualifiedName": "VoiceSession.subscribe"
 		},
 		"696": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSession.subscribe"
+			"qualifiedName": "listener"
 		},
 		"697": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSession.subscribe"
+			"qualifiedName": "__type"
 		},
 		"698": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "listener"
+			"qualifiedName": "__type"
 		},
 		"699": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "event"
 		},
 		"700": {
 			"packageName": "distube",
@@ -19062,12 +19025,12 @@
 		"701": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "event"
+			"qualifiedName": "__type"
 		},
 		"702": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "VoiceSessionEvent"
 		},
 		"703": {
 			"packageName": "distube",
@@ -19077,27 +19040,27 @@
 		"704": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSessionEvent"
+			"qualifiedName": "__type.type"
 		},
 		"705": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "__type.gateway"
 		},
 		"706": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type.type"
+			"qualifiedName": "__type"
 		},
 		"707": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type.channelId"
+			"qualifiedName": "__type.type"
 		},
 		"708": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type.gateway"
+			"qualifiedName": "__type.reason"
 		},
 		"709": {
 			"packageName": "distube",
@@ -19117,59 +19080,44 @@
 		"712": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "__type.error"
 		},
 		"713": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type.type"
+			"qualifiedName": "VoiceSessionOptions"
 		},
 		"714": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type.reason"
+			"qualifiedName": "VoiceSessionOptions.selfDeaf"
 		},
 		"715": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "__type.error"
+			"qualifiedName": "VoiceSessionOptions.selfMute"
 		},
 		"716": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSessionOptions"
+			"qualifiedName": "VoiceSessionOptions.timeoutMs"
 		},
 		"717": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSessionOptions.selfDeaf"
+			"qualifiedName": "VoiceSessionOptions.signal"
 		},
 		"718": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSessionOptions.selfMute"
+			"qualifiedName": "VoiceTarget"
 		},
 		"719": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSessionOptions.timeoutMs"
-		},
-		"720": {
-			"packageName": "distube",
-			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceSessionOptions.signal"
-		},
-		"721": {
-			"packageName": "distube",
-			"packagePath": "src/media.ts",
-			"qualifiedName": "VoiceTarget"
-		},
-		"722": {
-			"packageName": "distube",
-			"packagePath": "src/media.ts",
 			"qualifiedName": "VoiceTarget.guildId"
 		},
-		"723": {
+		"720": {
 			"packageName": "distube",
 			"packagePath": "src/media.ts",
 			"qualifiedName": "VoiceTarget.channelId"
