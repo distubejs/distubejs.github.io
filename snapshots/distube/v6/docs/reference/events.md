@@ -36,7 +36,7 @@ unsubscribe();
 | `voice.disconnected`    | The bot's voice in a guild ended        | `voice`, `channelId`, `reason`, optional `error` |
 
 Every queue event also carries `guildId`, the `queue`, a snapshot `state` and the `timestamp` of the change. `state`
-holds `current`, `upcoming`, `history`, `status`, `repeat` and `autoplay` as they were at that moment. `state.status`
+holds `current`, `upcoming`, `history`, `status`, `repeat`, `autoplay` and `related` as they were at that moment. `state.status`
 is `idle`, `preparing`, `playing` or `paused`, as the [queue reference](../queue/#status) explains. Voice events carry
 `guildId`, `voice` and `timestamp`.
 
@@ -86,6 +86,7 @@ When a change also has an event of its own, `queue.updated` comes right after it
 | ---------------------------------------------------- | ------------------------------------------------------------- |
 | `play`, `add`                                        | `queue.item.added` or `queue.playlist.added`, `queue.updated` |
 | Autoplay adds a Song                                 | `queue.item.added`, `queue.updated`                           |
+| `prefetchAutoplay` finds, drops or re-times a Song   | `queue.updated`, with a new `state.related`                   |
 | The player takes an item                             | `queue.updated`                                               |
 | An item becomes audible                              | `queue.item.started`, `queue.updated`                         |
 | An item finishes on its own, with repeat and history | `queue.item.finished`, `queue.updated`                        |
@@ -145,6 +146,9 @@ When a change also has an event of its own, `queue.updated` comes right after it
 - Adding a Song fires one `queue.item.added`. Adding a Playlist fires one `queue.playlist.added` and no event per item.
   `play` resolves after that. The item can still fail to prepare or play later, which fires `queue.item.failed` for
   it.
+- An input that stops while the item plays fails it with `SOURCE_FAILED`, with `cause` the input's first error and
+  `source` the plugin that prepared it. That happens only after the engine's reopen budget ran out, or for a resource
+  that cannot reopen. A `live` track recovers without any event and finishes only when the broadcast ends.
 - Each item gets at most one of `queue.item.finished` and `queue.item.failed`. An item that a command ends early gets
   neither, only the command's update. The [queue reference](../queue/#items-and-history) has the history rules.
 - When the queue runs out, `queue.finished` fires, then `queue.deleted` with reason `finished`.
