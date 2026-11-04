@@ -16569,7 +16569,7 @@
 		},
 		{
 			"kind": "text",
-			"text": "\n\n## 🤝 Contributing\n\nContributions are welcome! Please read our [Contributing Guidelines](https://github.com/skick1234/DisTube/blob/main/.github/CONTRIBUTING.md) before submitting a pull request.\n\n## 📄 License\n\nLicensed under [MIT License](https://github.com/skick1234/DisTube/blob/main/LICENSE)\n\n---\n\n<div align=\"center\">\n  <a href='https://ko-fi.com/skick' target='_blank'><img height='48' src='https://storage.ko-fi.com/cdn/kofi3.png' alt='Support me on Ko-fi' /></a>\n</div>"
+			"text": "\n\n## 💡 Examples\n\n- [distubejs/example](https://github.com/distubejs/example): Reference bots for discord.js and Oceanic\n- [DisTube - Discord Music Bot](https://distube.skick.xyz): Support Interactive Player, Music Channel, YouTube, Spotify,...\n\n## 🤝 Contributing\n\nContributions are welcome! Please read our [Contributing Guidelines](https://github.com/skick1234/DisTube/blob/main/.github/CONTRIBUTING.md) before submitting a pull request.\n\n## 📄 License\n\nLicensed under [MIT License](https://github.com/skick1234/DisTube/blob/main/LICENSE)\n\n---\n\n<div align=\"center\">\n  <a href='https://ko-fi.com/skick' target='_blank'><img height='48' src='https://storage.ko-fi.com/cdn/kofi3.png' alt='Support me on Ko-fi' /></a>\n</div>"
 		}
 	],
 	"symbolIdMap": {
