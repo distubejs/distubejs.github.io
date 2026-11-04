@@ -89,4 +89,15 @@ Read more about the error in the [error guide](https://distube.js.org/ytdl-core/
 
 ## When it stops working
 
-Signing out of the browser session that made the cookie invalidates it, so keep that session signed in or close its window without signing out. YouTube can also expire a cookie on its own. When the signed-in entries of `error.attempts` show `AUTH_FAILED`, YouTube is treating your cookie as signed out, even if `error.code` is `AGE_RESTRICTED` or `BOT_CHECK`. Copy a fresh one and restart the process that uses it.
+Signing out of the browser session that made the cookie invalidates it, so keep that session signed in or close its window without signing out. YouTube can also expire a cookie on its own. When the signed-in entries of `error.attempts` show `AUTH_FAILED`, YouTube is treating your cookie as signed out, even if `error.code` is `AGE_RESTRICTED` or `BOT_CHECK`. Copy a fresh one and pass it to `setCookie` on the instance you already have:
+
+```ts
+import { Ytdl } from "@distube/ytdl-core";
+import { readFileSync } from "node:fs";
+
+declare const ytdl: Ytdl;
+
+ytdl.setCookie(readFileSync("youtube-cookies.txt", "utf8"));
+```
+
+Lookups that start after the call use the new cookie, and so does a running download the next time it looks the video up again. Lookups already in flight finish with the old one. `setCookie` validates the value as `new Ytdl({ cookie })` does and keeps the old cookie when it throws. `setCookie(undefined)` signs the instance out.
